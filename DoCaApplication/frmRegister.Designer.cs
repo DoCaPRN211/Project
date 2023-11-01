@@ -133,28 +133,28 @@
             txtPassword.Location = new Point(218, 391);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(214, 27);
-            txtPassword.TabIndex = 15;
+            txtPassword.TabIndex = 18;
             // 
             // txtEmail
             // 
             txtEmail.Location = new Point(218, 223);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(214, 27);
-            txtEmail.TabIndex = 19;
+            txtEmail.TabIndex = 14;
             // 
             // txtFullname
             // 
             txtFullname.Location = new Point(218, 168);
             txtFullname.Name = "txtFullname";
             txtFullname.Size = new Size(214, 27);
-            txtFullname.TabIndex = 21;
+            txtFullname.TabIndex = 13;
             // 
             // txtConfirm
             // 
             txtConfirm.Location = new Point(218, 451);
             txtConfirm.Name = "txtConfirm";
             txtConfirm.Size = new Size(214, 27);
-            txtConfirm.TabIndex = 22;
+            txtConfirm.TabIndex = 20;
             // 
             // dtpDoB
             // 
@@ -162,7 +162,7 @@
             dtpDoB.Location = new Point(218, 278);
             dtpDoB.Name = "dtpDoB";
             dtpDoB.Size = new Size(214, 27);
-            dtpDoB.TabIndex = 23;
+            dtpDoB.TabIndex = 16;
             // 
             // rbtnMale
             // 
@@ -171,7 +171,7 @@
             rbtnMale.Location = new Point(221, 337);
             rbtnMale.Name = "rbtnMale";
             rbtnMale.Size = new Size(63, 24);
-            rbtnMale.TabIndex = 24;
+            rbtnMale.TabIndex = 17;
             rbtnMale.TabStop = true;
             rbtnMale.Text = "Male";
             rbtnMale.UseVisualStyleBackColor = true;
@@ -191,7 +191,7 @@
             btnRegister.Location = new Point(218, 521);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(94, 29);
-            btnRegister.TabIndex = 26;
+            btnRegister.TabIndex = 23;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
             btnRegister.Click += btnRegister_Click;
