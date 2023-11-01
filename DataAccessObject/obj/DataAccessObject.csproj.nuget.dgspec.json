@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Kì 5\\PRN211 - NET\\Project\\DoCaProject\\DataAccessObject\\DataAccessObject.csproj": {}
+    "D:\\FPT\\Term 5\\Code\\DemoCSharp\\Project\\DataAccessObject\\DataAccessObject.csproj": {}
   },
   "projects": {
-    "D:\\Kì 5\\PRN211 - NET\\Project\\DoCaProject\\BusinessObject\\BusinessObject.csproj": {
+    "D:\\FPT\\Term 5\\Code\\DemoCSharp\\Project\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Kì 5\\PRN211 - NET\\Project\\DoCaProject\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "D:\\FPT\\Term 5\\Code\\DemoCSharp\\Project\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "D:\\Kì 5\\PRN211 - NET\\Project\\DoCaProject\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\Hi\\.nuget\\packages\\",
-        "outputPath": "D:\\Kì 5\\PRN211 - NET\\Project\\DoCaProject\\BusinessObject\\obj\\",
+        "projectPath": "D:\\FPT\\Term 5\\Code\\DemoCSharp\\Project\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\Term 5\\Code\\DemoCSharp\\Project\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Hi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -84,20 +84,20 @@
         }
       }
     },
-    "D:\\Kì 5\\PRN211 - NET\\Project\\DoCaProject\\DataAccessObject\\DataAccessObject.csproj": {
+    "D:\\FPT\\Term 5\\Code\\DemoCSharp\\Project\\DataAccessObject\\DataAccessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Kì 5\\PRN211 - NET\\Project\\DoCaProject\\DataAccessObject\\DataAccessObject.csproj",
+        "projectUniqueName": "D:\\FPT\\Term 5\\Code\\DemoCSharp\\Project\\DataAccessObject\\DataAccessObject.csproj",
         "projectName": "DataAccessObject",
-        "projectPath": "D:\\Kì 5\\PRN211 - NET\\Project\\DoCaProject\\DataAccessObject\\DataAccessObject.csproj",
-        "packagesPath": "C:\\Users\\Hi\\.nuget\\packages\\",
-        "outputPath": "D:\\Kì 5\\PRN211 - NET\\Project\\DoCaProject\\DataAccessObject\\obj\\",
+        "projectPath": "D:\\FPT\\Term 5\\Code\\DemoCSharp\\Project\\DataAccessObject\\DataAccessObject.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\Term 5\\Code\\DemoCSharp\\Project\\DataAccessObject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Hi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -113,8 +113,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Kì 5\\PRN211 - NET\\Project\\DoCaProject\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "D:\\Kì 5\\PRN211 - NET\\Project\\DoCaProject\\BusinessObject\\BusinessObject.csproj"
+              "D:\\FPT\\Term 5\\Code\\DemoCSharp\\Project\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\FPT\\Term 5\\Code\\DemoCSharp\\Project\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }

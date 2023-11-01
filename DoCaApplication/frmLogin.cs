@@ -31,7 +31,6 @@ namespace DoCaApplication
                 MessageBox.Show("You have no permission to do this function!", "DoCa Management");
         }
 
-        //duma
         private void btnRegister_Click(object sender, EventArgs e)
         {
             frmRegister frm = new frmRegister();
