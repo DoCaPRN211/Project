@@ -30,7 +30,7 @@ namespace DoCaApplication
             else
                 MessageBox.Show("You have no permission to do this function!", "DoCa Management");
         }
-
+        //troll
         private void btnRegister_Click(object sender, EventArgs e)
         {
             frmRegister frm = new frmRegister();
