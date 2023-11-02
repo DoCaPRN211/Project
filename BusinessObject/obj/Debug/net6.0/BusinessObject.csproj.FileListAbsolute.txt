@@ -13,3 +13,18 @@ D:\Kì 5\PRN211 - NET\Project\DoCaProject\BusinessObject\obj\Debug\net6.0\Busine
 D:\Kì 5\PRN211 - NET\Project\DoCaProject\BusinessObject\obj\Debug\net6.0\BusinessObject.genruntimeconfig.cache
 D:\Kì 5\PRN211 - NET\Project\DoCaProject\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll
 D:\Kì 5\PRN211 - NET\Project\DoCaProject\BusinessObject\bin\Debug\net6.0\appsettings.json
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\bin\Debug\net6.0\appsettings.json
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\bin\Debug\net6.0\BusinessObject.deps.json
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\bin\Debug\net6.0\BusinessObject.runtimeconfig.json
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\bin\Debug\net6.0\BusinessObject.dll
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\bin\Debug\net6.0\BusinessObject.pdb
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.AssemblyReference.cache
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfoInputs.cache
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfo.cs
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.CoreCompileInputs.cache
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.dll
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\obj\Debug\net6.0\refint\BusinessObject.dll
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.pdb
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.genruntimeconfig.cache
+D:\FPT\Term 5\Code\DemoCSharp\Project\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll

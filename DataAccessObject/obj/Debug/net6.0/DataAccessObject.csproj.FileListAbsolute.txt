@@ -14,3 +14,19 @@ D:\Kì 5\PRN211 - NET\Project\DoCaProject\DataAccessObject\obj\Debug\net6.0\refi
 D:\Kì 5\PRN211 - NET\Project\DoCaProject\DataAccessObject\obj\Debug\net6.0\DataAccessObject.pdb
 D:\Kì 5\PRN211 - NET\Project\DoCaProject\DataAccessObject\obj\Debug\net6.0\ref\DataAccessObject.dll
 D:\Kì 5\PRN211 - NET\Project\DoCaProject\DataAccessObject\bin\Debug\net6.0\appsettings.json
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\bin\Debug\net6.0\appsettings.json
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\bin\Debug\net6.0\DataAccessObject.deps.json
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\bin\Debug\net6.0\DataAccessObject.dll
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\bin\Debug\net6.0\DataAccessObject.pdb
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\bin\Debug\net6.0\BusinessObject.dll
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\bin\Debug\net6.0\BusinessObject.pdb
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\obj\Debug\net6.0\DataAccessObject.csproj.AssemblyReference.cache
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\obj\Debug\net6.0\DataAccessObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\obj\Debug\net6.0\DataAccessObject.AssemblyInfoInputs.cache
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\obj\Debug\net6.0\DataAccessObject.AssemblyInfo.cs
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\obj\Debug\net6.0\DataAccessObject.csproj.CoreCompileInputs.cache
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\obj\Debug\net6.0\DataAccessObject.csproj.CopyComplete
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\obj\Debug\net6.0\DataAccessObject.dll
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\obj\Debug\net6.0\refint\DataAccessObject.dll
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\obj\Debug\net6.0\DataAccessObject.pdb
+D:\FPT\Term 5\Code\DemoCSharp\Project\DataAccessObject\obj\Debug\net6.0\ref\DataAccessObject.dll
