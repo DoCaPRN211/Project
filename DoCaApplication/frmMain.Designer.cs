@@ -36,21 +36,24 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.Highlight;
-            label1.Location = new Point(304, 69);
+            label1.Location = new Point(266, 52);
             label1.Name = "label1";
-            label1.Size = new Size(139, 38);
+            label1.Size = new Size(107, 30);
             label1.TabIndex = 0;
             label1.Text = "Welcome";
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(992, 598);
             Controls.Add(label1);
+            IsMdiContainer = true;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMain";
+            Load += frmMain_Load;
             ResumeLayout(false);
             PerformLayout();
         }

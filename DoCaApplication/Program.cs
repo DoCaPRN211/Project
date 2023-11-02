@@ -1,3 +1,7 @@
+using BusinessObject.Models;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms.VisualStyles;
+
 namespace DoCaApplication
 {
     internal static class Program
@@ -13,5 +17,10 @@ namespace DoCaApplication
             ApplicationConfiguration.Initialize();
             Application.Run(new frmLogin());
         }
+    }
+
+    public static class LoginInfo
+    {
+        public static User user;
     }
 }

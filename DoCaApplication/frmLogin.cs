@@ -22,8 +22,10 @@ namespace DoCaApplication
 
             if (tmp != null)
             {
+                var loginedUser = userRepository.GetUserById(tmp.Id);
                 frmMain f = new frmMain();
-
+                LoginInfo.user = loginedUser;
+                f.Text = "DoCa Forum";
                 f.Show();
                 this.Hide();
             }
