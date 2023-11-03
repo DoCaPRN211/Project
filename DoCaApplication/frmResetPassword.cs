@@ -21,7 +21,7 @@ namespace DoCaApplication
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtCurPass.Text.Equals(userRepository.GetUserById(LoginInfo.user.Id).Password)) 
+            if (txtCurPass.Text.Equals(userRepository.GetUserById(LoginInfo.user.Id).Password))
             {
                 if (txtNewPass.Text.Equals(txtConfirm.Text))
                 {
@@ -36,11 +36,16 @@ namespace DoCaApplication
                         Application.Restart();
                     }
                 }
-            } 
+            }
             else
             {
                 MessageBox.Show("Current Password doesn't exist!", "Warning");
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

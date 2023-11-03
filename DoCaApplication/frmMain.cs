@@ -84,6 +84,7 @@ namespace DoCaApplication
         {
             frmLogin f = new frmLogin();
             f.Show();
+            LoginInfo.user = null;
             this.Close();
         }
 
