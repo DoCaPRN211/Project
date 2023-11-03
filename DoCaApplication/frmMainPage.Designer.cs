@@ -1,6 +1,6 @@
 ﻿namespace DoCaApplication
 {
-    partial class frmMain
+    partial class frmMainPage
     {
         /// <summary>
         /// Required designer variable.
@@ -30,17 +30,13 @@
         {
             SuspendLayout();
             // 
-            // frmMain
+            // frmMainPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(992, 611);
-            IsMdiContainer = true;
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "frmMain";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmMain";
-            Load += frmMain_Load;
+            ClientSize = new Size(800, 450);
+            Name = "frmMainPage";
+            Text = "frmMainPage";
             ResumeLayout(false);
         }
 

@@ -59,7 +59,7 @@
             dtpDoB.Location = new Point(174, 210);
             dtpDoB.Margin = new Padding(3, 2, 3, 2);
             dtpDoB.Name = "dtpDoB";
-            dtpDoB.Size = new Size(188, 23);
+            dtpDoB.Size = new Size(226, 23);
             dtpDoB.TabIndex = 37;
             // 
             // txtFullname
@@ -68,7 +68,7 @@
             txtFullname.Location = new Point(174, 128);
             txtFullname.Margin = new Padding(3, 2, 3, 2);
             txtFullname.Name = "txtFullname";
-            txtFullname.Size = new Size(188, 23);
+            txtFullname.Size = new Size(226, 23);
             txtFullname.TabIndex = 34;
             // 
             // txtEmail
@@ -77,7 +77,7 @@
             txtEmail.Location = new Point(174, 169);
             txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(188, 23);
+            txtEmail.Size = new Size(226, 23);
             txtEmail.TabIndex = 36;
             // 
             // txtPassword
@@ -96,14 +96,14 @@
             txtUsername.Location = new Point(174, 88);
             txtUsername.Margin = new Padding(3, 2, 3, 2);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(188, 23);
+            txtUsername.Size = new Size(226, 23);
             txtUsername.TabIndex = 33;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label7.Location = new Point(147, 23);
+            label7.Location = new Point(186, 35);
             label7.Name = "label7";
             label7.Size = new Size(119, 25);
             label7.TabIndex = 32;
@@ -168,7 +168,7 @@
             txtGender.Enabled = false;
             txtGender.Location = new Point(174, 250);
             txtGender.Name = "txtGender";
-            txtGender.Size = new Size(188, 23);
+            txtGender.Size = new Size(226, 23);
             txtGender.TabIndex = 38;
             // 
             // contextMenuStrip1
@@ -178,7 +178,7 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(96, 351);
+            btnEdit.Location = new Point(134, 361);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(106, 30);
             btnEdit.TabIndex = 41;
@@ -188,7 +188,7 @@
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(240, 351);
+            btnClose.Location = new Point(278, 361);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(75, 30);
             btnClose.TabIndex = 42;
@@ -224,7 +224,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(174, 351);
+            btnCancel.Location = new Point(206, 361);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 30);
             btnCancel.TabIndex = 45;
@@ -235,7 +235,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(66, 351);
+            btnSave.Location = new Point(104, 361);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 30);
             btnSave.TabIndex = 46;
@@ -246,7 +246,7 @@
             // 
             // btnChangePass
             // 
-            btnChangePass.Location = new Point(136, 398);
+            btnChangePass.Location = new Point(287, 292);
             btnChangePass.Name = "btnChangePass";
             btnChangePass.Size = new Size(113, 30);
             btnChangePass.TabIndex = 47;
@@ -258,7 +258,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(412, 449);
+            ClientSize = new Size(471, 449);
             Controls.Add(btnChangePass);
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
