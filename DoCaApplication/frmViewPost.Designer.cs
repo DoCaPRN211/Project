@@ -1,6 +1,6 @@
 ﻿namespace DoCaApplication
 {
-    partial class frmMain
+    partial class frmViewPost
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // frmMain
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1208, 679);
-            IsMdiContainer = true;
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "frmMain";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmMain";
-            Load += frmMain_Load;
-            ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "frmViewPost";
         }
 
         #endregion

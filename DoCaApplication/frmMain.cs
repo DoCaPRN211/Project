@@ -72,7 +72,10 @@ namespace DoCaApplication
 
         private void menuMainPage_Click(object sender, EventArgs e)
         {
-
+            frmMainPage f = new frmMainPage();
+            f.Text = $"Main Page";
+            f.MdiParent = this;
+            f.Show();
         }
 
         private void menuAdminPage_Click(object sender, EventArgs e)
@@ -90,7 +93,7 @@ namespace DoCaApplication
 
         private void menuExit_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
