@@ -32,11 +32,10 @@
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(992, 611);
+            ClientSize = new Size(1507, 848);
             IsMdiContainer = true;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMain";

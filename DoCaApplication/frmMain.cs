@@ -77,7 +77,10 @@ namespace DoCaApplication
 
         private void menuAdminPage_Click(object sender, EventArgs e)
         {
-
+            frmAdminPage f = new frmAdminPage();
+            f.Text = $"Admin Form";
+            f.MdiParent = this;
+            f.Show();
         }
 
         private void menuLogout_Click(object sender, EventArgs e)

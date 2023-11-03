@@ -110,7 +110,8 @@ namespace DataAccessObject
         public void BanUser(User u)
         {
             using var db = new DoCaPrnContext();
-            u.Isban = true;
+            if (u.Isban == true) u.Isban = false;
+            else if (u.Isban == false) u.Isban = true;
             db.Users.Update(u);
             db.SaveChanges();
         }
