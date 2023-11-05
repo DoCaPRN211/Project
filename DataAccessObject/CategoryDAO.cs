@@ -35,5 +35,19 @@ namespace DataAccessObject
             var tmp = GetCategories().SingleOrDefault(c => c.Name.Equals(categoryName));
             return tmp;
         }
+
+        public void CreateCategory(Category category)
+        {
+            using var db = new DoCaPrnContext();
+            db.Categories.Add(category);
+            db.SaveChanges();
+        }
+
+        public void UpdateCategory(Category category)
+        {
+            using var db = new DoCaPrnContext();
+            db.Categories.Update(category);
+            db.SaveChanges();
+        }
     }
 }

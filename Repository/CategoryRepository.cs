@@ -10,10 +10,16 @@ namespace Repository
 {
     public class CategoryRepository : ICategoryRepository
     {
+        public void CreateCategory(Category category)
+            => CategoryDAO.Instance.CreateCategory(category);
+
         public List<Category> GetCategories()
             => CategoryDAO.Instance.GetCategories();
 
         public Category GetCategoryByCategory(string categoryName)
             => CategoryDAO.Instance.GetCategoryByCategory(categoryName);
+
+        public void UpdateCategory(Category category)
+            => CategoryDAO.Instance.UpdateCategory(category);
     }
 }

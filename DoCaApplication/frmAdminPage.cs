@@ -15,6 +15,7 @@ namespace DoCaApplication
     public partial class frmAdminPage : Form
     {
         IUserRepository userRepository = new UserRepository();
+        ICategoryRepository categoryRepository = new CategoryRepository();
         public frmAdminPage()
         {
             InitializeComponent();
@@ -79,11 +80,12 @@ namespace DoCaApplication
                 if (memlist.Count() == 0)
                 {
                     ClearText();
-
+                    btnActive.Enabled = false;
                 }
                 else
                 {
-
+                    btnActive.Enabled = true;
+                    btnBan.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -107,6 +109,9 @@ namespace DoCaApplication
 
         private void btnShowMembers_Click(object sender, EventArgs e)
         {
+            txtCategoryId.Text = string.Empty;
+            txtCategoryName.Text = string.Empty;
+            btnUpdateCategory.Enabled = false;
             LoadMemberList();
         }
 
@@ -201,11 +206,13 @@ namespace DoCaApplication
                 if (memlist.Count() == 0)
                 {
                     ClearText();
-
+                    btnActive.Enabled = false;
+                    btnBan.Enabled = false;
                 }
                 else
                 {
-
+                    btnActive.Enabled = true;
+                    btnBan.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -269,11 +276,13 @@ namespace DoCaApplication
                 if (memlist.Count() == 0)
                 {
                     ClearText();
-
+                    btnActive.Enabled = false;
+                    btnBan.Enabled = false;
                 }
                 else
                 {
-
+                    btnActive.Enabled = true;
+                    btnBan.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -286,6 +295,9 @@ namespace DoCaApplication
         {
             try
             {
+                btnUpdateCategory.Enabled = false;
+                txtCategoryId.Text = string.Empty;
+                txtCategoryName.Text = string.Empty;
                 SearchMemberByUsername(txtSearch.Text);
             }
             catch (Exception ex)
@@ -298,6 +310,9 @@ namespace DoCaApplication
         {
             try
             {
+                btnUpdateCategory.Enabled = false;
+                txtCategoryId.Text = string.Empty;
+                txtCategoryName.Text = string.Empty;
                 SearchMemberByEmail(txtSearch.Text);
             }
             catch (Exception ex)
@@ -310,17 +325,24 @@ namespace DoCaApplication
         {
             try
             {
-                User u = new User();
-                var list = userRepository.GetUsers();
-                foreach (var mem in list)
+                DialogResult d;
+                d = MessageBox.Show("Do you really want to change banned status of this member?", "Member Management",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1);
+                if (d == DialogResult.OK)
                 {
-                    if (mem.Id.Equals(txtMemberId.Text)) u = mem;
+                    User u = new User();
+                    var list = userRepository.GetUsers();
+                    foreach (var mem in list)
+                    {
+                        if (mem.Id.Equals(txtMemberId.Text)) u = mem;
+                    }
+                    if (u != null)
+                    {
+                        userRepository.BanUser(u);
+                    }
+                    LoadMemberList();
                 }
-                if (u != null)
-                {
-                    userRepository.BanUser(u);
-                }
-                LoadMemberList();
             }
             catch (Exception ex)
             {
@@ -332,17 +354,24 @@ namespace DoCaApplication
         {
             try
             {
-                User u = new User();
-                var list = userRepository.GetUsers();
-                foreach (var mem in list)
+                DialogResult d;
+                d = MessageBox.Show("Do you really want to delete this member?", "Member Management",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1);
+                if (d == DialogResult.OK)
                 {
-                    if (mem.Id.Equals(txtMemberId.Text)) u = mem;
+                    User u = new User();
+                    var list = userRepository.GetUsers();
+                    foreach (var mem in list)
+                    {
+                        if (mem.Id.Equals(txtMemberId.Text)) u = mem;
+                    }
+                    if (u != null)
+                    {
+                        userRepository.DeleteUser(u);
+                    }
+                    LoadMemberList();
                 }
-                if (u != null)
-                {
-                    userRepository.DeleteUser(u);
-                }
-                LoadMemberList();
             }
             catch (Exception ex)
             {
@@ -404,11 +433,12 @@ namespace DoCaApplication
                 if (memlist.Count() == 0)
                 {
                     ClearText();
-
+                    btnBan.Enabled = false;
                 }
                 else
                 {
-
+                    btnBan.Enabled = true;
+                    btnActive.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -419,7 +449,87 @@ namespace DoCaApplication
 
         private void btnShowBanned_Click(object sender, EventArgs e)
         {
+            btnUpdateCategory.Enabled = false;
+            txtCategoryId.Text = string.Empty;
+            txtCategoryName.Text = string.Empty;
             ShowBannedMembers();
+        }
+
+        public void LoadCategoryList()
+        {
+            try
+            {
+                var catelist = categoryRepository.GetCategories().ToList();
+                var list = catelist.Select(c => new
+                {
+                    c.Id,
+                    c.Name
+                }).ToList();
+
+                BindingSource source = new BindingSource();
+                source.DataSource = list;
+
+                txtCategoryId.DataBindings.Clear();
+                txtCategoryName.DataBindings.Clear();
+
+                txtCategoryId.DataBindings.Add("Text", source, "Id");
+                txtCategoryName.DataBindings.Add("Text", source, "Name");
+
+                dgvAdmin.DataSource = null;
+                dgvAdmin.DataSource = source;
+
+                if (list.Count() == 0)
+                {
+                    btnUpdateCategory.Enabled = false;
+                }
+                else
+                {
+                    btnUpdateCategory.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error on load list of categories");
+            }
+        }
+
+        private void btnViewCategory_Click(object sender, EventArgs e)
+        {
+            btnActive.Enabled = false;
+            btnBan.Enabled = false;
+            ClearText();
+            LoadCategoryList();
+        }
+
+        private void btnCreateCategory_Click(object sender, EventArgs e)
+        {
+            frmCategoryDetail frmCategoryDetail = new frmCategoryDetail
+            {
+                Text = "Add category",
+                InsertOrUpdate = false,
+                CategoryRepository = categoryRepository
+            };
+            if (frmCategoryDetail.ShowDialog() == DialogResult.OK)
+            {
+                LoadCategoryList();
+            }
+            frmCategoryDetail.Close();
+        }
+
+        private void btnUpdateCategory_Click(object sender, EventArgs e)
+        {
+            frmCategoryDetail frmCategoryDetail = new frmCategoryDetail
+            {
+                Text = "Update category",
+                InsertOrUpdate = true,
+                CategoryDetail = categoryRepository.GetCategoryByCategory(txtCategoryName.Text),
+                CategoryRepository = categoryRepository
+            };
+            if (frmCategoryDetail.ShowDialog() == DialogResult.OK)
+            {
+                LoadCategoryList();
+            }
+            frmCategoryDetail.Close();
         }
     }
 }

@@ -34,11 +34,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-<<<<<<< HEAD
+
             ClientSize = new Size(1208, 679);
-=======
+
             ClientSize = new Size(1507, 848);
->>>>>>> phuong
+
             IsMdiContainer = true;
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;

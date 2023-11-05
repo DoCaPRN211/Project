@@ -56,6 +56,11 @@
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
+            btnViewCategory = new Button();
+            btnCreateCategory = new Button();
+            btnUpdateCategory = new Button();
+            txtCategoryId = new TextBox();
+            txtCategoryName = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvAdmin).BeginInit();
             SuspendLayout();
             // 
@@ -84,7 +89,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.HotTrack;
-            label1.Location = new Point(588, 9);
+            label1.Location = new Point(571, 9);
             label1.Name = "label1";
             label1.Size = new Size(181, 38);
             label1.TabIndex = 2;
@@ -92,7 +97,7 @@
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(1095, 104);
+            btnClose.Location = new Point(12, 181);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(94, 29);
             btnClose.TabIndex = 3;
@@ -204,9 +209,9 @@
             // 
             // btnActive
             // 
-            btnActive.Location = new Point(803, 104);
+            btnActive.Location = new Point(12, 146);
             btnActive.Name = "btnActive";
-            btnActive.Size = new Size(189, 29);
+            btnActive.Size = new Size(162, 29);
             btnActive.TabIndex = 16;
             btnActive.Text = "Delete Member";
             btnActive.UseVisualStyleBackColor = true;
@@ -214,9 +219,9 @@
             // 
             // btnBan
             // 
-            btnBan.Location = new Point(803, 139);
+            btnBan.Location = new Point(207, 146);
             btnBan.Name = "btnBan";
-            btnBan.Size = new Size(189, 29);
+            btnBan.Size = new Size(198, 29);
             btnBan.TabIndex = 17;
             btnBan.Text = "Change Banned Status";
             btnBan.UseVisualStyleBackColor = true;
@@ -226,7 +231,7 @@
             // 
             btnShowBanned.Location = new Point(207, 111);
             btnShowBanned.Name = "btnShowBanned";
-            btnShowBanned.Size = new Size(216, 29);
+            btnShowBanned.Size = new Size(198, 29);
             btnShowBanned.TabIndex = 18;
             btnShowBanned.Text = "Show Banned Members";
             btnShowBanned.UseVisualStyleBackColor = true;
@@ -313,11 +318,62 @@
             label10.TabIndex = 35;
             label10.Text = "Banned Status:";
             // 
+            // btnViewCategory
+            // 
+            btnViewCategory.Location = new Point(865, 104);
+            btnViewCategory.Name = "btnViewCategory";
+            btnViewCategory.Size = new Size(161, 29);
+            btnViewCategory.TabIndex = 36;
+            btnViewCategory.Text = "View Categories";
+            btnViewCategory.UseVisualStyleBackColor = true;
+            btnViewCategory.Click += btnViewCategory_Click;
+            // 
+            // btnCreateCategory
+            // 
+            btnCreateCategory.Location = new Point(865, 138);
+            btnCreateCategory.Name = "btnCreateCategory";
+            btnCreateCategory.Size = new Size(161, 29);
+            btnCreateCategory.TabIndex = 37;
+            btnCreateCategory.Text = "Create Category";
+            btnCreateCategory.UseVisualStyleBackColor = true;
+            btnCreateCategory.Click += btnCreateCategory_Click;
+            // 
+            // btnUpdateCategory
+            // 
+            btnUpdateCategory.Location = new Point(865, 173);
+            btnUpdateCategory.Name = "btnUpdateCategory";
+            btnUpdateCategory.Size = new Size(161, 29);
+            btnUpdateCategory.TabIndex = 38;
+            btnUpdateCategory.Text = "Update Category";
+            btnUpdateCategory.UseVisualStyleBackColor = true;
+            btnUpdateCategory.Click += btnUpdateCategory_Click;
+            // 
+            // txtCategoryId
+            // 
+            txtCategoryId.Location = new Point(1032, 103);
+            txtCategoryId.Name = "txtCategoryId";
+            txtCategoryId.ReadOnly = true;
+            txtCategoryId.Size = new Size(87, 27);
+            txtCategoryId.TabIndex = 39;
+            // 
+            // txtCategoryName
+            // 
+            txtCategoryName.Location = new Point(1032, 138);
+            txtCategoryName.Name = "txtCategoryName";
+            txtCategoryName.ReadOnly = true;
+            txtCategoryName.Size = new Size(157, 27);
+            txtCategoryName.TabIndex = 40;
+            // 
             // frmAdminPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1586, 728);
+            Controls.Add(txtCategoryName);
+            Controls.Add(txtCategoryId);
+            Controls.Add(btnUpdateCategory);
+            Controls.Add(btnCreateCategory);
+            Controls.Add(btnViewCategory);
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -384,5 +440,10 @@
         private Label label8;
         private Label label9;
         private Label label10;
+        private Button btnViewCategory;
+        private Button btnCreateCategory;
+        private Button btnUpdateCategory;
+        private TextBox txtCategoryId;
+        private TextBox txtCategoryName;
     }
 }
