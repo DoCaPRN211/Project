@@ -42,7 +42,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(158, 102);
+            label1.Location = new Point(83, 97);
             label1.Name = "label1";
             label1.Size = new Size(32, 15);
             label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(158, 140);
+            label2.Location = new Point(83, 135);
             label2.Name = "label2";
             label2.Size = new Size(53, 15);
             label2.TabIndex = 1;
@@ -60,7 +60,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(158, 183);
+            label3.Location = new Point(83, 283);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);
             label3.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label4.Location = new Point(273, 40);
+            label4.Location = new Point(202, 26);
             label4.Name = "label4";
             label4.Size = new Size(215, 32);
             label4.TabIndex = 3;
@@ -78,30 +78,31 @@
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(239, 99);
+            txtTitle.Location = new Point(164, 94);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(209, 23);
+            txtTitle.Size = new Size(304, 23);
             txtTitle.TabIndex = 4;
             // 
             // txtContent
             // 
-            txtContent.Location = new Point(239, 140);
+            txtContent.Location = new Point(164, 135);
+            txtContent.Multiline = true;
             txtContent.Name = "txtContent";
-            txtContent.Size = new Size(209, 23);
+            txtContent.Size = new Size(304, 130);
             txtContent.TabIndex = 5;
             // 
             // cboCate
             // 
             cboCate.FormattingEnabled = true;
-            cboCate.Location = new Point(239, 183);
+            cboCate.Location = new Point(164, 283);
             cboCate.Name = "cboCate";
-            cboCate.Size = new Size(209, 23);
+            cboCate.Size = new Size(304, 23);
             cboCate.TabIndex = 6;
             cboCate.SelectedIndexChanged += cboCate_SelectedIndexChanged;
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(209, 263);
+            btnCreate.Location = new Point(202, 364);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(75, 23);
             btnCreate.TabIndex = 7;
@@ -111,18 +112,19 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(328, 263);
+            btnCancel.Location = new Point(321, 364);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 8;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // frmPostDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(564, 450);
             Controls.Add(btnCancel);
             Controls.Add(btnCreate);
             Controls.Add(cboCate);

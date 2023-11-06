@@ -15,38 +15,69 @@ namespace DoCaApplication
     public partial class frmMainPage : Form
     {
         IPostRepository postRepository = new PostRepository();
+        ICommentRepository commentRepository = new CommentRepository();
+        IReactRepository reactRepository = new ReactRepository();
         BindingSource BindingSource { get; set; }
+        Post post { get; set; }
         public frmMainPage()
         {
             InitializeComponent();
         }
 
-        private void Bingding(List<Post> list)
+        private void ClearText()
         {
-            var postList = list.Select(p => new
+            txtPost.Text = string.Empty;
+            txtPost1.Text = string.Empty;
+        }
+
+        private void Binding(List<Post> list)
+        {
+            try
             {
-                p.Title,
-                CreateTime = p.Createtime,
-                Reaction = p.Reacts.Count(),
-                Comment = p.Comments.Count(),
-            }).ToList();
+                var postList = list.Where(p => p.Isactive).Select(p => new
+                {
+                    p.Title,
+                    CreateTime = p.Createtime,
+                    Reaction = reactRepository.GetReactsByPost(p).Count(),
+                    Comment = commentRepository.GetCommentsByPost(p).Count(),
+                }).OrderBy(p => p.CreateTime).ToList();
 
-            BindingSource = new BindingSource();
-            BindingSource.DataSource = postList;
+                BindingSource = new BindingSource();
+                BindingSource.DataSource = postList;
 
-            dgvPost.DataSource = null;
-            dgvPost.DataSource = BindingSource;
+                txtPost.DataBindings.Clear();
+                txtPost1.DataBindings.Clear();
+
+                txtPost.DataBindings.Add("Text", BindingSource, "Title");
+                txtPost1.DataBindings.Add("Text", BindingSource, "CreateTime");
+
+                dgvPost.DataSource = null;
+                dgvPost.DataSource = BindingSource;
+
+                if (postList.Count == 0)
+                {
+                    ClearText();
+                    btnViewPost.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Load Post List");
+            }
         }
 
         private void LoadPostList()
         {
+            ClearText();
             var list = postRepository.GetPosts().ToList();
-            Bingding(list);
+            Binding(list);
         }
 
         private void frmMainPage_Load(object sender, EventArgs e)
         {
             LoadPostList();
+            txtPost.Visible = true;
+            txtPost1.Visible = true;
         }
 
         private void btnCreatePost_Click(object sender, EventArgs e)
@@ -55,7 +86,6 @@ namespace DoCaApplication
             {
                 Text = "Create A New Post",
                 InsertOrUpdate = false,
-                PostRepository = postRepository,
             };
             if (frmPostDetails.ShowDialog() == DialogResult.OK)
             {
@@ -64,18 +94,27 @@ namespace DoCaApplication
             LoadPostList();
         }
 
-        private void btnUpdatePost_Click(object sender, EventArgs e)
+        private void btnViewPost_Click(object sender, EventArgs e)
         {
-            frmPostDetails frmPostDetails = new frmPostDetails
+            frmViewPost f = new frmViewPost
             {
-                Text = "Update A Post",
-                InsertOrUpdate = true,
-                PostRepository = postRepository,
+                Text = "View Post",
+                post = postRepository.GetPostByTitleAndCreateTime(txtPost.Text, DateTime.Parse(txtPost1.Text)),
+                reactRepository = reactRepository,
             };
-            if (frmPostDetails.ShowDialog() == DialogResult.OK)
+            f.ShowDialog();
+            LoadPostList();
+        }
+
+        private void dgvPost_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmViewPost f = new frmViewPost
             {
-                BindingSource.Position = BindingSource.Count - 1;
-            }
+                Text = "View Post",
+                post = postRepository.GetPostByTitleAndCreateTime(txtPost.Text, DateTime.Parse(txtPost1.Text)),
+                reactRepository = reactRepository,
+            };
+            f.ShowDialog();
             LoadPostList();
         }
     }

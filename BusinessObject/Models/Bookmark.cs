@@ -9,7 +9,7 @@ public partial class Bookmark
 
     public string Userid { get; set; } = null!;
 
-    public int Id { get; set; }
+    public string Id { get; set; } = null!;
 
     public DateTime? Createtime { get; set; }
 

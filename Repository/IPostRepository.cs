@@ -1,4 +1,5 @@
 ﻿using BusinessObject.Models;
+using DataAccessObject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Repository
         List<Post> GetPosts();
 
         Post GetPostById(Post post);
+
+        Post GetPostByTitleAndCreateTime(string title, DateTime createTime);
 
         void CreatePost(Post post);
 

@@ -52,3 +52,21 @@ D:\Kì 5\PRN211 - NET\GitHub\Project\Repository\obj\Debug\net6.0\Repository.dll
 D:\Kì 5\PRN211 - NET\GitHub\Project\Repository\obj\Debug\net6.0\refint\Repository.dll
 D:\Kì 5\PRN211 - NET\GitHub\Project\Repository\obj\Debug\net6.0\Repository.pdb
 D:\Kì 5\PRN211 - NET\GitHub\Project\Repository\obj\Debug\net6.0\ref\Repository.dll
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\bin\Debug\net6.0\appsettings.json
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\bin\Debug\net6.0\Repository.deps.json
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\bin\Debug\net6.0\Repository.dll
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\bin\Debug\net6.0\Repository.pdb
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\bin\Debug\net6.0\BusinessObject.dll
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\bin\Debug\net6.0\DataAccessObject.dll
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\bin\Debug\net6.0\DataAccessObject.pdb
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\bin\Debug\net6.0\BusinessObject.pdb
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\obj\Debug\net6.0\Repository.csproj.AssemblyReference.cache
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\obj\Debug\net6.0\Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\obj\Debug\net6.0\Repository.AssemblyInfoInputs.cache
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\obj\Debug\net6.0\Repository.AssemblyInfo.cs
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\obj\Debug\net6.0\Repository.csproj.CoreCompileInputs.cache
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\obj\Debug\net6.0\Repository.csproj.CopyComplete
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\obj\Debug\net6.0\Repository.dll
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\obj\Debug\net6.0\refint\Repository.dll
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\obj\Debug\net6.0\Repository.pdb
+D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\Repository\obj\Debug\net6.0\ref\Repository.dll

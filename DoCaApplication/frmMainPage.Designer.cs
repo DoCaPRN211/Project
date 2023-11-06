@@ -31,7 +31,8 @@
             dgvPost = new DataGridView();
             btnCreatePost = new Button();
             btnViewPost = new Button();
-            btnUpdatePost = new Button();
+            txtPost = new TextBox();
+            txtPost1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvPost).BeginInit();
             SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             dgvPost.RowTemplate.Height = 25;
             dgvPost.Size = new Size(788, 662);
             dgvPost.TabIndex = 0;
+            dgvPost.CellDoubleClick += dgvPost_CellDoubleClick;
             // 
             // btnCreatePost
             // 
@@ -63,23 +65,29 @@
             btnViewPost.TabIndex = 3;
             btnViewPost.Text = "View post";
             btnViewPost.UseVisualStyleBackColor = true;
+            btnViewPost.Click += btnViewPost_Click;
             // 
-            // btnUpdatePost
+            // txtPost
             // 
-            btnUpdatePost.Location = new Point(24, 129);
-            btnUpdatePost.Name = "btnUpdatePost";
-            btnUpdatePost.Size = new Size(75, 23);
-            btnUpdatePost.TabIndex = 4;
-            btnUpdatePost.Text = "Update post";
-            btnUpdatePost.UseVisualStyleBackColor = true;
-            btnUpdatePost.Click += btnUpdatePost_Click;
+            txtPost.Location = new Point(1086, 3);
+            txtPost.Name = "txtPost";
+            txtPost.Size = new Size(100, 23);
+            txtPost.TabIndex = 5;
+            // 
+            // txtPost1
+            // 
+            txtPost1.Location = new Point(1086, 32);
+            txtPost1.Name = "txtPost1";
+            txtPost1.Size = new Size(100, 23);
+            txtPost1.TabIndex = 6;
             // 
             // frmMainPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1210, 667);
-            Controls.Add(btnUpdatePost);
+            Controls.Add(txtPost1);
+            Controls.Add(txtPost);
             Controls.Add(btnViewPost);
             Controls.Add(btnCreatePost);
             Controls.Add(dgvPost);
@@ -88,6 +96,7 @@
             Load += frmMainPage_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPost).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -95,6 +104,7 @@
         private DataGridView dgvPost;
         private Button btnCreatePost;
         private Button btnViewPost;
-        private Button btnUpdatePost;
+        private TextBox txtPost;
+        private TextBox txtPost1;
     }
 }

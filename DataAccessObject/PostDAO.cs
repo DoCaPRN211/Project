@@ -18,7 +18,7 @@ namespace DataAccessObject
             {
                 if (instance == null)
                 {
-                    instance = new PostDAO();   
+                    instance = new PostDAO();
                 }
                 return instance;
             }
@@ -36,6 +36,12 @@ namespace DataAccessObject
             return tmp;
         }
 
+        public Post GetPostByTitleAndCreateTime(string title, DateTime createTime)
+        {
+            var tmp = GetPosts().SingleOrDefault(p => p.Title.Equals(title) && p.Createtime == createTime);
+            return tmp;
+        }
+
         public void CreatePost(Post post)
         {
             using var db = new DoCaPrnContext();
@@ -46,22 +52,19 @@ namespace DataAccessObject
         public void UpdatePost(Post post)
         {
             using var db = new DoCaPrnContext();
-            var p = db.Posts.Find(post.Id);
-            if (p != null)
-            {
-                p.Title = post.Title;
-                p.Content = post.Content;
-                p.Categoryid = post.Categoryid;
-                db.SaveChanges();
-            }
+            db.Posts.Update(post);
+            db.SaveChanges();
         }
 
         public void DeletePost(Post post)
         {
             using var db = new DoCaPrnContext();
-            var tmp = GetPostById(post);
-            db.Posts.Remove(tmp);
-            db.SaveChanges();
+            var p = db.Posts.Find(post.Id);
+            if (p != null)
+            {
+                p.Isactive = false;
+                db.SaveChanges();
+            }
         }
     }
 }

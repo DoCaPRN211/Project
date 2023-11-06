@@ -36,6 +36,12 @@ namespace DataAccessObject
             return tmp;
         }
 
+        public Category GetCategoryByCategoryId(int id)
+        {
+            var tmp = GetCategories().SingleOrDefault(c => c.Id == id);
+            return tmp;
+        }
+
         public void CreateCategory(Category category)
         {
             using var db = new DoCaPrnContext();

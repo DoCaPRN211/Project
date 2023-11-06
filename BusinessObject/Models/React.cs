@@ -5,7 +5,7 @@ namespace BusinessObject.Models;
 
 public partial class React
 {
-    public int Id { get; set; }
+    public string Id { get; set; } = null!;
 
     public bool Isactive { get; set; }
 

@@ -16,6 +16,9 @@ namespace Repository
         public Post GetPostById(Post post)
             => PostDAO.Instance.GetPostById(post);
 
+        public Post GetPostByTitleAndCreateTime(string title, DateTime createTime)
+            => PostDAO.Instance.GetPostByTitleAndCreateTime(title, createTime);
+
         public void CreatePost(Post post)
             => PostDAO.Instance.CreatePost(post);
 

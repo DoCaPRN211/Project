@@ -16,6 +16,7 @@ namespace DoCaApplication
     {
         public bool InsertOrUpdate { get; set; }
         public IPostRepository PostRepository { get; set; }
+        IPostRepository PostRepository123 = new PostRepository();
         public ICategoryRepository CategoryRepository = new CategoryRepository();
         public Post Post { get; set; }
         public frmPostDetails()
@@ -49,8 +50,11 @@ namespace DoCaApplication
                     }
                     else
                     {
-                        PostRepository.UpdatePost(post);
-                        check = "Update";
+                    Post.Title = txtTitle.Text;
+                    Post.Content = txtContent.Text;
+                    Post.Categoryid = CategoryRepository.GetCategoryByCategory(cboCate.Text).Id;
+                    PostRepository123.UpdatePost(Post);
+                    check = "Update";
                     }
                     d = MessageBox.Show(check + " successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (d == DialogResult.OK)
@@ -68,7 +72,7 @@ namespace DoCaApplication
             {
                 MessageBox.Show(ex.Message, InsertOrUpdate == false ? "Create a new post" : "Edit a post");
             }
-        }
+}
 
         private void cboCate_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -77,10 +81,22 @@ namespace DoCaApplication
 
         private void frmPostDetails_Load(object sender, EventArgs e)
         {
+            if (InsertOrUpdate)
+            {
+                label4.Text = "Update a Post";
+                txtTitle.Text = Post.Title.ToString();
+                txtContent.Text = Post.Content.ToString();
+                cboCate.Text = CategoryRepository.GetCategoryByCategoryId(Post.Categoryid).Name;
+            }
             foreach (var cate in CategoryRepository.GetCategories())
             {
                 cboCate.Items.Add(cate.Name);
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

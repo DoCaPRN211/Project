@@ -11,6 +11,7 @@ namespace Repository
     {
         List<Category> GetCategories();
         Category GetCategoryByCategory(string categoryName);
+        Category GetCategoryByCategoryId(int id);
         void CreateCategory(Category category);
         void UpdateCategory(Category category);
     }
