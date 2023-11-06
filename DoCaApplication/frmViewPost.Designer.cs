@@ -42,68 +42,75 @@
             txtId = new TextBox();
             btnEditPost = new Button();
             btnDelete = new Button();
+            lbBan = new Label();
+            btnBookmark = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvComment).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(140, 47);
+            label1.Location = new Point(160, 63);
             label1.Name = "label1";
-            label1.Size = new Size(32, 15);
+            label1.Size = new Size(41, 20);
             label1.TabIndex = 0;
             label1.Text = "Title:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(140, 96);
+            label2.Location = new Point(160, 128);
             label2.Name = "label2";
-            label2.Size = new Size(50, 15);
+            label2.Size = new Size(61, 20);
             label2.TabIndex = 1;
             label2.Text = "Content";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(121, 363);
+            label3.Location = new Point(138, 484);
             label3.Name = "label3";
-            label3.Size = new Size(69, 15);
+            label3.Size = new Size(83, 20);
             label3.TabIndex = 2;
             label3.Text = "Comments:";
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(207, 44);
+            txtTitle.Location = new Point(237, 59);
+            txtTitle.Margin = new Padding(3, 4, 3, 4);
             txtTitle.Name = "txtTitle";
             txtTitle.ReadOnly = true;
-            txtTitle.Size = new Size(402, 23);
+            txtTitle.Size = new Size(459, 27);
             txtTitle.TabIndex = 4;
             // 
             // txtContent
             // 
-            txtContent.Location = new Point(207, 93);
+            txtContent.Location = new Point(237, 124);
+            txtContent.Margin = new Padding(3, 4, 3, 4);
             txtContent.Multiline = true;
             txtContent.Name = "txtContent";
             txtContent.ReadOnly = true;
-            txtContent.Size = new Size(402, 237);
+            txtContent.Size = new Size(459, 315);
             txtContent.TabIndex = 5;
             // 
             // dgvComment
             // 
             dgvComment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvComment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvComment.Location = new Point(207, 363);
+            dgvComment.Location = new Point(237, 484);
+            dgvComment.Margin = new Padding(3, 4, 3, 4);
             dgvComment.Name = "dgvComment";
+            dgvComment.RowHeadersWidth = 51;
             dgvComment.RowTemplate.Height = 25;
-            dgvComment.Size = new Size(402, 221);
+            dgvComment.Size = new Size(459, 295);
             dgvComment.TabIndex = 6;
             // 
             // btnAddComment
             // 
-            btnAddComment.Location = new Point(647, 455);
+            btnAddComment.Location = new Point(739, 607);
+            btnAddComment.Margin = new Padding(3, 4, 3, 4);
             btnAddComment.Name = "btnAddComment";
-            btnAddComment.Size = new Size(116, 23);
+            btnAddComment.Size = new Size(133, 31);
             btnAddComment.TabIndex = 7;
             btnAddComment.Text = "Add Comment";
             btnAddComment.UseVisualStyleBackColor = true;
@@ -111,9 +118,10 @@
             // 
             // btnViewComment
             // 
-            btnViewComment.Location = new Point(647, 484);
+            btnViewComment.Location = new Point(739, 645);
+            btnViewComment.Margin = new Padding(3, 4, 3, 4);
             btnViewComment.Name = "btnViewComment";
-            btnViewComment.Size = new Size(116, 23);
+            btnViewComment.Size = new Size(133, 31);
             btnViewComment.TabIndex = 8;
             btnViewComment.Text = "View Comment";
             btnViewComment.UseVisualStyleBackColor = true;
@@ -121,23 +129,26 @@
             // 
             // txtCreateTime
             // 
-            txtCreateTime.Location = new Point(688, 12);
+            txtCreateTime.Location = new Point(786, 16);
+            txtCreateTime.Margin = new Padding(3, 4, 3, 4);
             txtCreateTime.Name = "txtCreateTime";
-            txtCreateTime.Size = new Size(100, 23);
+            txtCreateTime.Size = new Size(114, 27);
             txtCreateTime.TabIndex = 9;
             // 
             // txtComment
             // 
-            txtComment.Location = new Point(688, 39);
+            txtComment.Location = new Point(786, 52);
+            txtComment.Margin = new Padding(3, 4, 3, 4);
             txtComment.Name = "txtComment";
-            txtComment.Size = new Size(100, 23);
+            txtComment.Size = new Size(114, 27);
             txtComment.TabIndex = 10;
             // 
             // btnLike
             // 
-            btnLike.Location = new Point(647, 513);
+            btnLike.Location = new Point(739, 684);
+            btnLike.Margin = new Padding(3, 4, 3, 4);
             btnLike.Name = "btnLike";
-            btnLike.Size = new Size(116, 23);
+            btnLike.Size = new Size(133, 31);
             btnLike.TabIndex = 11;
             btnLike.Text = "Like";
             btnLike.UseVisualStyleBackColor = true;
@@ -145,16 +156,18 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(688, 68);
+            txtId.Location = new Point(786, 91);
+            txtId.Margin = new Padding(3, 4, 3, 4);
             txtId.Name = "txtId";
-            txtId.Size = new Size(100, 23);
+            txtId.Size = new Size(114, 27);
             txtId.TabIndex = 12;
             // 
             // btnEditPost
             // 
-            btnEditPost.Location = new Point(647, 416);
+            btnEditPost.Location = new Point(739, 555);
+            btnEditPost.Margin = new Padding(3, 4, 3, 4);
             btnEditPost.Name = "btnEditPost";
-            btnEditPost.Size = new Size(75, 23);
+            btnEditPost.Size = new Size(86, 31);
             btnEditPost.TabIndex = 13;
             btnEditPost.Text = "Edit Post";
             btnEditPost.UseVisualStyleBackColor = true;
@@ -162,19 +175,41 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(647, 387);
+            btnDelete.Location = new Point(739, 516);
+            btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(116, 23);
+            btnDelete.Size = new Size(133, 31);
             btnDelete.TabIndex = 14;
             btnDelete.Text = "Delete this Post";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
+            // lbBan
+            // 
+            lbBan.Location = new Point(12, 234);
+            lbBan.Name = "lbBan";
+            lbBan.Size = new Size(166, 63);
+            lbBan.TabIndex = 15;
+            lbBan.Text = "You can not make any comments due to being banned!";
+            lbBan.Visible = false;
+            // 
+            // btnBookmark
+            // 
+            btnBookmark.Location = new Point(739, 311);
+            btnBookmark.Name = "btnBookmark";
+            btnBookmark.Size = new Size(161, 29);
+            btnBookmark.TabIndex = 16;
+            btnBookmark.Text = "Save as Bookmark";
+            btnBookmark.UseVisualStyleBackColor = true;
+            btnBookmark.Click += btnBookmark_Click;
+            // 
             // frmViewPost
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 615);
+            ClientSize = new Size(914, 820);
+            Controls.Add(btnBookmark);
+            Controls.Add(lbBan);
             Controls.Add(btnDelete);
             Controls.Add(btnEditPost);
             Controls.Add(txtId);
@@ -189,6 +224,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmViewPost";
             Text = "frmViewPost";
             Load += frmViewPost_Load;
@@ -213,5 +249,7 @@
         private TextBox txtId;
         private Button btnEditPost;
         private Button btnDelete;
+        private Label lbBan;
+        private Button btnBookmark;
     }
 }

@@ -18,6 +18,7 @@ namespace DoCaApplication
         public Post post { get; set; }
         public IPostRepository postRepository = new PostRepository();
         ICommentRepository commentRepository = new CommentRepository();
+        IBookmarkRepository bookmarkRepository = new BookmarkRepositoy();
         public IReactRepository reactRepository { get; set; }
         BindingSource BindingSource { get; set; }
         public frmViewPost()
@@ -32,7 +33,7 @@ namespace DoCaApplication
                 c.Content,
                 CreateTime = c.Createtime,
                 React = reactRepository.GetReactsByComment(c).Count(),
-            }).OrderBy(c => c.CreateTime).ToList();
+            }).OrderByDescending(c => c.CreateTime).ToList();
 
             BindingSource = new BindingSource();
             BindingSource.DataSource = list;
@@ -77,6 +78,13 @@ namespace DoCaApplication
             txtComment.Visible = true;
             txtId.Text = post.Createtime.ToString();
 
+            if (post.Userid.Equals(LoginInfo.user.Id) && LoginInfo.user.Isban)
+            {
+                lbBan.Visible = true;
+                btnAddComment.Enabled = false;
+                btnEditPost.Enabled = false;
+            }
+
             if (post.Userid.Equals(LoginInfo.user.Id))
             {
                 btnDelete.Visible = true;
@@ -102,6 +110,22 @@ namespace DoCaApplication
             else
             {
                 btnLike.Text = "Like";
+            }
+
+            if (bookmarkRepository.GetBookmarkByUserIdAndPostId(LoginInfo.user.Id, post.Id) != null)
+            {
+                if (bookmarkRepository.GetBookmarkByUserIdAndPostId(LoginInfo.user.Id, post.Id).Isactive)
+                {
+                    btnBookmark.Text = "Unbookmark";
+                }
+                else
+                {
+                    btnBookmark.Text = "Save as Bookmark";
+                }
+            }
+            else
+            {
+                btnBookmark.Text = "Save as Bookmark";
             }
             LoadCommentList();
         }
@@ -188,6 +212,27 @@ namespace DoCaApplication
             {
                 MessageBox.Show(ex.Message, "Delete Post");
             }
+        }
+
+        private void btnBookmark_Click(object sender, EventArgs e)
+        {
+            var bookmark = new Bookmark
+            {
+                Id = Guid.NewGuid().ToString(),
+                Isactive = true,
+                Createtime = DateTime.Now,
+                Postid = post.Id,
+                Userid = LoginInfo.user.Id,
+            };
+            if (bookmarkRepository.GetBookmarkByUserIdAndPostId(LoginInfo.user.Id, post.Id) != null)
+            {
+                bookmarkRepository.ChangeBookmarkStatus(bookmark);
+            }
+            else
+            {
+                bookmarkRepository.AddBookmark(bookmark);
+            }
+            btnBookmark.Text = (btnBookmark.Text.Equals("Save as Bookmark") ? "Unbookmark" : "Save as Bookmark");
         }
     }
 }

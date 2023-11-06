@@ -35,6 +35,10 @@ namespace DoCaApplication
                 btnAddComment.Visible = false;
                 if (Comment.Userid.Equals(LoginInfo.user.Id))
                 {
+                    if (LoginInfo.user.Isban)
+                    {
+                        btnEdit.Enabled = false;
+                    }
                     btnDelete.Visible = true;
                     btnEdit.Visible = true;
                 }

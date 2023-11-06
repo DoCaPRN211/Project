@@ -58,3 +58,18 @@ D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\BusinessObject\obj\Debug\net6.0\refi
 D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.pdb
 D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.genruntimeconfig.cache
 D:\FPT\Term 5\Code\DemoCSharp\Merge\Project\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\bin\Debug\net6.0\appsettings.json
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\bin\Debug\net6.0\BusinessObject.deps.json
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\bin\Debug\net6.0\BusinessObject.runtimeconfig.json
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\bin\Debug\net6.0\BusinessObject.dll
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\bin\Debug\net6.0\BusinessObject.pdb
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.AssemblyReference.cache
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfoInputs.cache
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfo.cs
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.CoreCompileInputs.cache
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.dll
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\obj\Debug\net6.0\refint\BusinessObject.dll
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.pdb
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\obj\Debug\net6.0\BusinessObject.genruntimeconfig.cache
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll

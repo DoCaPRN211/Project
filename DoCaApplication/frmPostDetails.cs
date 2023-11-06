@@ -45,8 +45,8 @@ namespace DoCaApplication
                     string check = "";
                     if (!InsertOrUpdate)
                     {
-                        PostRepository.CreatePost(post);
-                        check = "Insert";
+                        PostRepository123.CreatePost(post);
+                        check = "Create";
                     }
                     else
                     {

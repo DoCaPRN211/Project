@@ -30,9 +30,9 @@ namespace DataAccessObject
             return db.Posts.ToList();
         }
 
-        public Post GetPostById(Post post)
+        public Post GetPostById(string postid)
         {
-            var tmp = GetPosts().SingleOrDefault(p => p.Id.Equals(post.Id));
+            var tmp = GetPosts().SingleOrDefault(p => p.Id.Equals(postid));
             return tmp;
         }
 

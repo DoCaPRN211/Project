@@ -23,7 +23,7 @@ namespace DataAccessObject
         public User checkLogin(string email, string password)
         {
             using var db = new DoCaPrnContext();
-            return db.Users.SingleOrDefault(u => (u.Email.Equals(email) || u.Username.Equals(email)) 
+            return db.Users.SingleOrDefault(u => u.Isactive && (u.Email.Equals(email) || u.Username.Equals(email)) 
                                             && u.Password.Equals(EncodePasswordToBase64(password)));
         }
 

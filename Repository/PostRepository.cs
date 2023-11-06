@@ -13,8 +13,8 @@ namespace Repository
         public List<Post> GetPosts() 
             => PostDAO.Instance.GetPosts();
 
-        public Post GetPostById(Post post)
-            => PostDAO.Instance.GetPostById(post);
+        public Post GetPostById(string postid)
+            => PostDAO.Instance.GetPostById(postid);
 
         public Post GetPostByTitleAndCreateTime(string title, DateTime createTime)
             => PostDAO.Instance.GetPostByTitleAndCreateTime(title, createTime);

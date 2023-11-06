@@ -12,7 +12,7 @@ namespace Repository
     {
         List<Post> GetPosts();
 
-        Post GetPostById(Post post);
+        Post GetPostById(string postid);
 
         Post GetPostByTitleAndCreateTime(string title, DateTime createTime);
 
