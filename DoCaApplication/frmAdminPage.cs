@@ -16,6 +16,9 @@ namespace DoCaApplication
     {
         IUserRepository userRepository = new UserRepository();
         ICategoryRepository categoryRepository = new CategoryRepository();
+        IPostRepository postRepository = new PostRepository();
+        ICommentRepository commentRepository = new CommentRepository();
+        IReactRepository reactRepository = new ReactRepository();
         public frmAdminPage()
         {
             InitializeComponent();
@@ -369,6 +372,9 @@ namespace DoCaApplication
                     if (u != null)
                     {
                         userRepository.DeleteUser(u);
+                        postRepository.DeletePostByUserId(u.Id);
+                        commentRepository.DeleteCommentByUserId(u.Id);
+                        reactRepository.DeleteReactByUserId(u.Id);
                     }
                     LoadMemberList();
                 }

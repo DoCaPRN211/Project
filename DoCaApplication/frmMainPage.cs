@@ -18,6 +18,7 @@ namespace DoCaApplication
         ICommentRepository commentRepository = new CommentRepository();
         IReactRepository reactRepository = new ReactRepository();
         IBookmarkRepository bookmarkRepository = new BookmarkRepositoy();
+        IUserRepository userRepository = new UserRepository();
         BindingSource BindingSource { get; set; }
         Post post { get; set; }
         public frmMainPage()
@@ -37,6 +38,7 @@ namespace DoCaApplication
             {
                 var postList = list.Where(p => p.Isactive).Select(p => new
                 {
+                    PostedBy = userRepository.GetUserById(p.Userid).Username,
                     p.Title,
                     CreateTime = p.Createtime,
                     Reaction = reactRepository.GetReactsByPost(p).Count(),
@@ -127,8 +129,8 @@ namespace DoCaApplication
         private void frmMainPage_Load(object sender, EventArgs e)
         {
             LoadPostList();
-            txtPost.Visible = true;
-            txtPost1.Visible = true;
+            txtPost.Visible = false;
+            txtPost1.Visible = false;
             if (LoginInfo.user.Isban)
             {
                 lbBan.Visible = true;
@@ -192,6 +194,11 @@ namespace DoCaApplication
         private void btnBookmark_Click(object sender, EventArgs e)
         {
             GetBookmarkList();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

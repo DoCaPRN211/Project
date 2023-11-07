@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainPage));
             dgvPost = new DataGridView();
             btnCreatePost = new Button();
             btnViewPost = new Button();
@@ -39,7 +40,10 @@
             btnShowPost = new Button();
             lbBan = new Label();
             btnBookmark = new Button();
+            btnClose = new Button();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvPost).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dgvPost
@@ -57,10 +61,10 @@
             // 
             // btnCreatePost
             // 
-            btnCreatePost.Location = new Point(27, 95);
+            btnCreatePost.Location = new Point(27, 148);
             btnCreatePost.Margin = new Padding(3, 4, 3, 4);
             btnCreatePost.Name = "btnCreatePost";
-            btnCreatePost.Size = new Size(138, 31);
+            btnCreatePost.Size = new Size(166, 31);
             btnCreatePost.TabIndex = 2;
             btnCreatePost.Text = "Create new post";
             btnCreatePost.UseVisualStyleBackColor = true;
@@ -68,10 +72,10 @@
             // 
             // btnViewPost
             // 
-            btnViewPost.Location = new Point(27, 133);
+            btnViewPost.Location = new Point(27, 187);
             btnViewPost.Margin = new Padding(3, 4, 3, 4);
             btnViewPost.Name = "btnViewPost";
-            btnViewPost.Size = new Size(86, 31);
+            btnViewPost.Size = new Size(166, 31);
             btnViewPost.TabIndex = 3;
             btnViewPost.Text = "View post";
             btnViewPost.UseVisualStyleBackColor = true;
@@ -79,7 +83,7 @@
             // 
             // txtPost
             // 
-            txtPost.Location = new Point(1241, 4);
+            txtPost.Location = new Point(1241, 13);
             txtPost.Margin = new Padding(3, 4, 3, 4);
             txtPost.Name = "txtPost";
             txtPost.Size = new Size(114, 27);
@@ -87,7 +91,7 @@
             // 
             // txtPost1
             // 
-            txtPost1.Location = new Point(1241, 43);
+            txtPost1.Location = new Point(1241, 52);
             txtPost1.Margin = new Padding(3, 4, 3, 4);
             txtPost1.Name = "txtPost1";
             txtPost1.Size = new Size(114, 27);
@@ -95,36 +99,36 @@
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(32, 244);
+            btnSearch.Location = new Point(1193, 150);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(94, 29);
+            btnSearch.Size = new Size(162, 29);
             btnSearch.TabIndex = 7;
-            btnSearch.Text = "Search";
+            btnSearch.Text = "Search Posts";
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(32, 279);
+            txtSearch.Location = new Point(1193, 185);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(133, 27);
+            txtSearch.Size = new Size(162, 27);
             txtSearch.TabIndex = 8;
             // 
             // btnRefresh
             // 
-            btnRefresh.Location = new Point(32, 351);
+            btnRefresh.Location = new Point(27, 365);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(94, 29);
+            btnRefresh.Size = new Size(166, 29);
             btnRefresh.TabIndex = 9;
-            btnRefresh.Text = "Refresh";
+            btnRefresh.Text = "Refresh Page";
             btnRefresh.UseVisualStyleBackColor = true;
             btnRefresh.Click += btnRefresh_Click;
             // 
             // btnShowPost
             // 
-            btnShowPost.Location = new Point(32, 438);
+            btnShowPost.Location = new Point(27, 256);
             btnShowPost.Name = "btnShowPost";
-            btnShowPost.Size = new Size(161, 29);
+            btnShowPost.Size = new Size(166, 29);
             btnShowPost.TabIndex = 10;
             btnShowPost.Text = "Show my Posts";
             btnShowPost.UseVisualStyleBackColor = true;
@@ -132,28 +136,52 @@
             // 
             // lbBan
             // 
-            lbBan.Location = new Point(27, 28);
+            lbBan.ForeColor = Color.Red;
+            lbBan.Location = new Point(27, 26);
             lbBan.Name = "lbBan";
-            lbBan.Size = new Size(166, 63);
+            lbBan.Size = new Size(166, 86);
             lbBan.TabIndex = 11;
-            lbBan.Text = "You can not create any posts due to being banned!";
+            lbBan.Text = "Notification: \r\nYou can not create or edit any posts due to being banned!";
             lbBan.Visible = false;
             // 
             // btnBookmark
             // 
-            btnBookmark.Location = new Point(32, 508);
+            btnBookmark.Location = new Point(27, 291);
             btnBookmark.Name = "btnBookmark";
-            btnBookmark.Size = new Size(161, 29);
+            btnBookmark.Size = new Size(166, 29);
             btnBookmark.TabIndex = 12;
             btnBookmark.Text = "Show Bookmark List";
             btnBookmark.UseVisualStyleBackColor = true;
             btnBookmark.Click += btnBookmark_Click;
             // 
+            // btnClose
+            // 
+            btnClose.Location = new Point(27, 400);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(166, 29);
+            btnClose.TabIndex = 13;
+            btnClose.Text = "Close Page";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = SystemColors.ControlDark;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1169, 567);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(186, 131);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
+            // 
             // frmMainPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1383, 889);
+            ClientSize = new Size(1377, 889);
+            Controls.Add(pictureBox1);
+            Controls.Add(btnClose);
             Controls.Add(btnBookmark);
             Controls.Add(lbBan);
             Controls.Add(btnShowPost);
@@ -170,6 +198,7 @@
             Text = "frmMainPage";
             Load += frmMainPage_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPost).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -187,5 +216,7 @@
         private Button btnShowPost;
         private Label lbBan;
         private Button btnBookmark;
+        private Button btnClose;
+        private PictureBox pictureBox1;
     }
 }

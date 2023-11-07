@@ -104,5 +104,25 @@ namespace DoCaApplication
         {
             this.Close();
         }
+
+        private void pbPass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtPassword.PasswordChar = '\0';
+        }
+
+        private void pbPass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtPassword.PasswordChar = '*';
+        }
+
+        private void pbConfirm_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtConfirm.PasswordChar = '\0';
+        }
+
+        private void pbConfirm_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtConfirm.PasswordChar = '*';
+        }
     }
 }

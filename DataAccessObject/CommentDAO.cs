@@ -43,6 +43,20 @@ namespace DataAccessObject
             return tmp;
         }
 
+        public void DeleteCommentByUserId(string userid)
+        {
+            using var db = new DoCaPrnContext();
+            var p = db.Comments.Where(p => p.Userid == userid);
+            if (p != null)
+            {
+                foreach (var comment in p)
+                {
+                    comment.Isactive = false;
+                }
+                db.SaveChanges();
+            }
+        }
+
         public void AddComment(Comment comment)
         {
             using var db = new DoCaPrnContext();

@@ -19,6 +19,7 @@ namespace DoCaApplication
         public IPostRepository postRepository = new PostRepository();
         ICommentRepository commentRepository = new CommentRepository();
         IBookmarkRepository bookmarkRepository = new BookmarkRepositoy();
+        IUserRepository userRepository = new UserRepository();
         public IReactRepository reactRepository { get; set; }
         BindingSource BindingSource { get; set; }
         public frmViewPost()
@@ -30,6 +31,7 @@ namespace DoCaApplication
         {
             var list = comments.Where(c => c.Isactive).Select(c => new
             {
+                By = userRepository.GetUserById(c.Userid).Username,
                 c.Content,
                 CreateTime = c.Createtime,
                 React = reactRepository.GetReactsByComment(c).Count(),
@@ -72,13 +74,15 @@ namespace DoCaApplication
 
         private void frmViewPost_Load(object sender, EventArgs e)
         {
+            txtBy.Text = userRepository.GetUserById(post.Userid).Username;
             txtTitle.Text = post.Title;
             txtContent.Text = post.Content;
-            txtCreateTime.Visible = true;
-            txtComment.Visible = true;
+            txtCreateTime.Visible = false;
+            txtComment.Visible = false;
+            txtId.Visible = false;
             txtId.Text = post.Createtime.ToString();
 
-            if (post.Userid.Equals(LoginInfo.user.Id) && LoginInfo.user.Isban)
+            if (LoginInfo.user.Isban)
             {
                 lbBan.Visible = true;
                 btnAddComment.Enabled = false;
@@ -227,12 +231,21 @@ namespace DoCaApplication
             if (bookmarkRepository.GetBookmarkByUserIdAndPostId(LoginInfo.user.Id, post.Id) != null)
             {
                 bookmarkRepository.ChangeBookmarkStatus(bookmark);
+                if (btnBookmark.Text.Equals("Save as Bookmark"))
+                    MessageBox.Show("Add Bookmark successfully!", "Bookmark", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else MessageBox.Show("Bookmark has been removed!", "Bookmark", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 bookmarkRepository.AddBookmark(bookmark);
+                MessageBox.Show("Add Bookmark successfully!", "Bookmark", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             btnBookmark.Text = (btnBookmark.Text.Equals("Save as Bookmark") ? "Unbookmark" : "Save as Bookmark");
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -46,7 +46,7 @@ namespace DoCaApplication
             btnCancel.Visible = false;
             btnSave.Visible = false;
             btnEdit.Visible = true;
-            btnClose.Location = new Point(255, 351);
+            btnClose.Location = new Point(318, 481);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace DoCaApplication
             btnCancel.Visible = true;
             btnSave.Visible = true;
             btnEdit.Visible = false;
-            btnClose.Location = new Point(310, 361);
+            btnClose.Location = new Point(353, 481);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace DoCaApplication
             btnCancel.Visible = false;
             btnSave.Visible = false;
             btnEdit.Visible = true;
-            btnClose.Location = new Point(278, 361);
+            btnClose.Location = new Point(318, 481);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -102,6 +102,16 @@ namespace DoCaApplication
         {
             frmResetPassword f = new frmResetPassword();
             f.ShowDialog();
+        }
+
+        private void pbPass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtPassword.PasswordChar = '\0';
+        }
+
+        private void pbPass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtPassword.PasswordChar = '*';
         }
     }
 }

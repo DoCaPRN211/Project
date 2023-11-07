@@ -24,5 +24,7 @@ namespace Repository
         void ChangeReactStatusByPost(React react);
 
         void ChangeReactStatusByComment(React react);
+
+        void DeleteReactByUserId(string userid);
     }
 }

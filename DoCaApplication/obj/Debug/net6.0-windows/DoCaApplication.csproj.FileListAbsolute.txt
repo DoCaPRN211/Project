@@ -229,6 +229,7 @@ D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-window
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.frmRegister.resources
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.frmResetPassword.resources
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.frmViewPost.resources
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.Properties.Resources.resources
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.csproj.GenerateResource.cache
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.GeneratedMSBuildEditorConfig.editorconfig
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.AssemblyInfoInputs.cache
@@ -240,3 +241,4 @@ D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-window
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.pdb
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.genruntimeconfig.cache
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\ref\DoCaApplication.dll
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.frmForgotPassword.resources

@@ -21,5 +21,7 @@ namespace Repository
         void UpdatePost(Post post); 
 
         void DeletePost(Post post);
+
+        void DeletePostByUserId(string userid);
     }
 }

@@ -115,5 +115,12 @@ namespace DataAccessObject
             db.Users.Update(u);
             db.SaveChanges();
         }
+
+        public User GetUserByUsernameAndEmail(string username, string email)
+        {
+            using var db = new DoCaPrnContext();
+            var user = db.Users.SingleOrDefault(u => u.Isactive && u.Username == username && u.Email == email);
+            return user;
+        }
     }
 }

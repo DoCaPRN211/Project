@@ -27,5 +27,8 @@ namespace Repository
 
         public void BanUser(User u)
             => UserDAO.Instance.BanUser(u);
+
+        public User GetUserByUsernameAndEmail(string username, string email)
+            => UserDAO.Instance.GetUserByUsernameAndEmail(username, email);
     }
 }

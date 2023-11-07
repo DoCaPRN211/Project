@@ -17,6 +17,7 @@ namespace Repository
         void UpdatePassword(User u, string newPass);
         void DeleteUser(User u);
         void BanUser(User u);
+        User GetUserByUsernameAndEmail(string username, string email);
 
     }
 }

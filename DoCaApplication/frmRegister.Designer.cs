@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegister));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -46,6 +47,10 @@
             rbtnFemale = new RadioButton();
             btnRegister = new Button();
             btnCancel = new Button();
+            pbPass = new PictureBox();
+            pbConfirm = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pbPass).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbConfirm).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -132,6 +137,7 @@
             // 
             txtPassword.Location = new Point(218, 391);
             txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(214, 27);
             txtPassword.TabIndex = 18;
             // 
@@ -153,6 +159,7 @@
             // 
             txtConfirm.Location = new Point(218, 451);
             txtConfirm.Name = "txtConfirm";
+            txtConfirm.PasswordChar = '*';
             txtConfirm.Size = new Size(214, 27);
             txtConfirm.TabIndex = 20;
             // 
@@ -206,11 +213,39 @@
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
+            // pbPass
+            // 
+            pbPass.BackColor = SystemColors.ControlLightLight;
+            pbPass.Image = (Image)resources.GetObject("pbPass.Image");
+            pbPass.Location = new Point(408, 394);
+            pbPass.Name = "pbPass";
+            pbPass.Size = new Size(20, 20);
+            pbPass.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPass.TabIndex = 28;
+            pbPass.TabStop = false;
+            pbPass.MouseDown += pbPass_MouseDown;
+            pbPass.MouseUp += pbPass_MouseUp;
+            // 
+            // pbConfirm
+            // 
+            pbConfirm.BackColor = SystemColors.ControlLightLight;
+            pbConfirm.Image = (Image)resources.GetObject("pbConfirm.Image");
+            pbConfirm.Location = new Point(408, 455);
+            pbConfirm.Name = "pbConfirm";
+            pbConfirm.Size = new Size(20, 20);
+            pbConfirm.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbConfirm.TabIndex = 29;
+            pbConfirm.TabStop = false;
+            pbConfirm.MouseDown += pbConfirm_MouseDown;
+            pbConfirm.MouseUp += pbConfirm_MouseUp;
+            // 
             // frmRegister
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(524, 584);
+            Controls.Add(pbConfirm);
+            Controls.Add(pbPass);
             Controls.Add(btnCancel);
             Controls.Add(btnRegister);
             Controls.Add(rbtnFemale);
@@ -232,6 +267,8 @@
             Name = "frmRegister";
             Text = "frmRegister";
             Load += frmRegister_Load;
+            ((System.ComponentModel.ISupportInitialize)pbPass).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbConfirm).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -256,5 +293,7 @@
         private RadioButton rbtnFemale;
         private Button btnRegister;
         private Button btnCancel;
+        private PictureBox pbPass;
+        private PictureBox pbConfirm;
     }
 }

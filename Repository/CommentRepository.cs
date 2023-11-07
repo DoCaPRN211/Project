@@ -27,5 +27,8 @@ namespace Repository
 
         public void DeleteComment(Comment comment)
             => CommentDAO.Instance.DeleteComment(comment);
+
+        public void DeleteCommentByUserId(string userid)
+            => CommentDAO.Instance.DeleteCommentByUserId(userid);
     }
 }

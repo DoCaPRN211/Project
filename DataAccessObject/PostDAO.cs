@@ -42,6 +42,20 @@ namespace DataAccessObject
             return tmp;
         }
 
+        public void DeletePostByUserId(string userid)
+        {
+            using var db = new DoCaPrnContext();
+            var p = db.Posts.Where(p => p.Userid == userid);
+            if (p != null)
+            {
+                foreach (var post in p)
+                {
+                    post.Isactive = false;
+                }                                      
+                db.SaveChanges();
+            }
+        }
+
         public void CreatePost(Post post)
         {
             using var db = new DoCaPrnContext();

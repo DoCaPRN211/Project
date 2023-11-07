@@ -35,40 +35,45 @@
             btnCancel = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
+            txtBy = new TextBox();
+            lbBy = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(172, 84);
+            label1.Location = new Point(78, 80);
             label1.Name = "label1";
-            label1.Size = new Size(64, 15);
+            label1.Size = new Size(77, 20);
             label1.TabIndex = 0;
             label1.Text = "Comment:";
             // 
             // txtComment
             // 
-            txtComment.Location = new Point(269, 71);
+            txtComment.Location = new Point(188, 80);
+            txtComment.Margin = new Padding(3, 4, 3, 4);
             txtComment.Multiline = true;
             txtComment.Name = "txtComment";
-            txtComment.Size = new Size(222, 95);
-            txtComment.TabIndex = 1;
+            txtComment.Size = new Size(257, 125);
+            txtComment.TabIndex = 2;
             // 
             // btnLike
             // 
-            btnLike.Location = new Point(235, 236);
+            btnLike.Location = new Point(204, 240);
+            btnLike.Margin = new Padding(3, 4, 3, 4);
             btnLike.Name = "btnLike";
-            btnLike.Size = new Size(75, 23);
-            btnLike.TabIndex = 2;
+            btnLike.Size = new Size(86, 31);
+            btnLike.TabIndex = 1;
             btnLike.Text = "Like";
             btnLike.UseVisualStyleBackColor = true;
             btnLike.Click += btnLike_Click;
             // 
             // btnAddComment
             // 
-            btnAddComment.Location = new Point(244, 236);
+            btnAddComment.Location = new Point(204, 240);
+            btnAddComment.Margin = new Padding(3, 4, 3, 4);
             btnAddComment.Name = "btnAddComment";
-            btnAddComment.Size = new Size(75, 23);
+            btnAddComment.Size = new Size(86, 31);
             btnAddComment.TabIndex = 3;
             btnAddComment.Text = "Add Comment";
             btnAddComment.UseVisualStyleBackColor = true;
@@ -76,9 +81,10 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(441, 236);
+            btnCancel.Location = new Point(344, 240);
+            btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 23);
+            btnCancel.Size = new Size(86, 31);
             btnCancel.TabIndex = 4;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
@@ -86,9 +92,10 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(342, 236);
+            btnEdit.Location = new Point(204, 279);
+            btnEdit.Margin = new Padding(3, 4, 3, 4);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(75, 23);
+            btnEdit.Size = new Size(86, 31);
             btnEdit.TabIndex = 5;
             btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = true;
@@ -96,19 +103,39 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(308, 279);
+            btnDelete.Location = new Point(344, 279);
+            btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(149, 23);
+            btnDelete.Size = new Size(86, 31);
             btnDelete.TabIndex = 6;
-            btnDelete.Text = "Delete this Comment";
+            btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
+            // txtBy
+            // 
+            txtBy.Location = new Point(188, 25);
+            txtBy.Name = "txtBy";
+            txtBy.ReadOnly = true;
+            txtBy.Size = new Size(125, 27);
+            txtBy.TabIndex = 7;
+            // 
+            // lbBy
+            // 
+            lbBy.AutoSize = true;
+            lbBy.Location = new Point(127, 28);
+            lbBy.Name = "lbBy";
+            lbBy.Size = new Size(28, 20);
+            lbBy.TabIndex = 8;
+            lbBy.Text = "By:";
+            // 
             // frmComment
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(557, 383);
+            Controls.Add(lbBy);
+            Controls.Add(txtBy);
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
             Controls.Add(btnCancel);
@@ -116,6 +143,7 @@
             Controls.Add(btnLike);
             Controls.Add(txtComment);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmComment";
             Text = "frmComment";
             Load += frmComment_Load;
@@ -132,5 +160,7 @@
         private Button btnCancel;
         private Button btnEdit;
         private Button btnDelete;
+        private TextBox txtBy;
+        private Label lbBy;
     }
 }

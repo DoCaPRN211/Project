@@ -107,5 +107,19 @@ namespace DataAccessObject
                 db.SaveChanges();
             }
         }
+
+        public void DeleteReactByUserId(string userid)
+        {
+            using var db = new DoCaPrnContext();
+            var p = db.Reacts.Where(p => p.Userid == userid);
+            if (p != null)
+            {
+                foreach (var react in p)
+                {
+                    react.Isactive = false;
+                }
+                db.SaveChanges();
+            }
+        }
     }
 }

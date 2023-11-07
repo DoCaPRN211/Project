@@ -31,6 +31,7 @@ namespace DoCaApplication
             ToolStripMenuItem menuLogout = new ToolStripMenuItem("&Logout");
             ToolStripMenuItem menuExit = new ToolStripMenuItem("&Exit");
             ToolStripMenuItem menuWindow = new ToolStripMenuItem("&Window");
+            ToolStripSeparator separator = new ToolStripSeparator();
 
             //mainMenu
             mainMenu.Items.AddRange(new ToolStripItem[] { menuFile, menuWindow });
@@ -39,11 +40,11 @@ namespace DoCaApplication
             //menuFile
             if (LoginInfo.user.Role.Equals("ADMIN"))
             {
-                menuFile.DropDownItems.AddRange(new ToolStripItem[] { menuProfile, menuMainPage, menuAdminPage, menuLogout, menuExit });
+                menuFile.DropDownItems.AddRange(new ToolStripItem[] { menuProfile, separator, menuMainPage, menuAdminPage, separator, menuLogout, menuExit });
             }
             else
             {
-                menuFile.DropDownItems.AddRange(new ToolStripItem[] { menuProfile, menuMainPage, menuLogout, menuExit });
+                menuFile.DropDownItems.AddRange(new ToolStripItem[] { menuProfile, separator, menuMainPage, separator, menuLogout, menuExit });
             }
 
             //menuProfile
@@ -88,20 +89,38 @@ namespace DoCaApplication
 
         private void menuLogout_Click(object sender, EventArgs e)
         {
-            frmLogin f = new frmLogin();
-            f.Show();
-            LoginInfo.user = null;
-            this.Close();
+            DialogResult d;
+            d = MessageBox.Show("Do you really want to logout ?", "Logout",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button1);
+            if (d == DialogResult.OK)
+            {
+                frmLogin f = new frmLogin();
+                f.Show();
+                LoginInfo.user = null;
+                this.Close();
+            }
         }
 
         private void menuExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult d;
+            d = MessageBox.Show("Do you really want to exit ?", "Exit",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button1);
+            if (d == DialogResult.OK)
+            {
+                Application.Exit();
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             CreateMyMainMenu();
+            frmMainPage f = new frmMainPage();
+            f.Text = $"Main Page";
+            f.MdiParent = this;
+            f.Show();
         }
     }
 }

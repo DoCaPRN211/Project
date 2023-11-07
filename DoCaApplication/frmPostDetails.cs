@@ -83,6 +83,7 @@ namespace DoCaApplication
         {
             if (InsertOrUpdate)
             {
+                btnCreate.Text = "Update";
                 label4.Text = "Update a Post";
                 txtTitle.Text = Post.Title.ToString();
                 txtContent.Text = Post.Content.ToString();

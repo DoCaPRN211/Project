@@ -23,7 +23,7 @@ namespace DoCaApplication
         {
             if (txtCurPass.Text.Equals(userRepository.GetUserById(LoginInfo.user.Id).Password))
             {
-                if (txtNewPass.Text.Equals(txtConfirm.Text))
+                if (txtNewPass.Text.Equals(txtConfirm.Text) && txtNewPass.Text != string.Empty)
                 {
                     userRepository.UpdatePassword(userRepository.GetUserById(LoginInfo.user.Id), txtNewPass.Text);
                     DialogResult d;
@@ -36,6 +36,11 @@ namespace DoCaApplication
                         Application.Restart();
                     }
                 }
+                else
+                {
+                    DialogResult d;
+                    d = MessageBox.Show("Confirm Password does not match!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
@@ -46,6 +51,41 @@ namespace DoCaApplication
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmResetPassword_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbCurrentPass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtCurPass.PasswordChar = '\0';
+        }
+
+        private void pbCurrentPass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtCurPass.PasswordChar = '*';
+        }
+
+        private void pbNewPass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtNewPass.PasswordChar = '\0';
+        }
+
+        private void pbNewPass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtNewPass.PasswordChar = '*';
+        }
+
+        private void pbConfirm_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtConfirm.PasswordChar = '\0';
+        }
+
+        private void pbConfirm_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtConfirm.PasswordChar = '*';
         }
     }
 }

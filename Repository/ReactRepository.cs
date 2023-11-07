@@ -32,5 +32,8 @@ namespace Repository
 
         public void ChangeReactStatusByComment(React react)
             => ReactDAO.Instance.ChangeReactStatusByComment(react);
+
+        public void DeleteReactByUserId(string userid)
+            => ReactDAO.Instance.DeleteReactByUserId(userid);
     }
 }

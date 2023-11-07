@@ -18,6 +18,7 @@ namespace DoCaApplication
         public Comment Comment { get; set; }
         public ICommentRepository commentRepository { get; set; }
         public IReactRepository reactRepository { get; set; }
+        IUserRepository userRepository = new UserRepository();
         public Post post { get; set; }
 
         public frmComment()
@@ -29,6 +30,9 @@ namespace DoCaApplication
         {
             if (ViewOrAdd)
             {
+                txtBy.Visible = true;
+                lbBy.Visible = true;
+                txtBy.Text = userRepository.GetUserById(Comment.Userid).Username;
                 txtComment.Text = Comment.Content;
                 txtComment.ReadOnly = true;
                 btnLike.Visible = true;
@@ -50,6 +54,8 @@ namespace DoCaApplication
             }
             else
             {
+                lbBy.Visible = false;
+                txtBy.Visible = false;
                 btnDelete.Visible = false;
                 btnEdit.Visible = false;
                 btnLike.Visible = false;

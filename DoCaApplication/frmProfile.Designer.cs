@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProfile));
             dtpDoB = new DateTimePicker();
             txtFullname = new TextBox();
             txtEmail = new TextBox();
@@ -50,6 +51,8 @@
             btnCancel = new Button();
             btnSave = new Button();
             btnChangePass = new Button();
+            pbPass = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pbPass).BeginInit();
             SuspendLayout();
             // 
             // dtpDoB
@@ -254,11 +257,25 @@
             btnChangePass.UseVisualStyleBackColor = true;
             btnChangePass.Click += btnChangePass_Click;
             // 
+            // pbPass
+            // 
+            pbPass.BackColor = SystemColors.ControlLightLight;
+            pbPass.Image = (Image)resources.GetObject("pbPass.Image");
+            pbPass.Location = new Point(299, 395);
+            pbPass.Name = "pbPass";
+            pbPass.Size = new Size(22, 24);
+            pbPass.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPass.TabIndex = 48;
+            pbPass.TabStop = false;
+            pbPass.MouseDown += pbPass_MouseDown;
+            pbPass.MouseUp += pbPass_MouseUp;
+            // 
             // frmProfile
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(538, 599);
+            Controls.Add(pbPass);
             Controls.Add(btnChangePass);
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
@@ -283,6 +300,7 @@
             Name = "frmProfile";
             Text = "frmProfile";
             Load += frmProfile_Load;
+            ((System.ComponentModel.ISupportInitialize)pbPass).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -310,5 +328,6 @@
         private Button btnCancel;
         private Button btnSave;
         private Button btnChangePass;
+        private PictureBox pbPass;
     }
 }

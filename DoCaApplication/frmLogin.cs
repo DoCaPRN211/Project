@@ -40,5 +40,23 @@ namespace DoCaApplication
             txtEmail.Text = string.Empty;
             txtPassword.Text = string.Empty;
         }
+
+        private void pbPass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtPassword.PasswordChar = '\0';
+        }
+
+        private void pbPass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtPassword.PasswordChar = '*';
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            frmForgotPassword frm = new frmForgotPassword();
+            frm.ShowDialog();
+            txtEmail.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+        }
     }
 }

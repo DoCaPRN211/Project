@@ -27,5 +27,8 @@ namespace Repository
 
         public void DeletePost(Post post)
             => PostDAO.Instance.DeletePost(post);
+
+        public void DeletePostByUserId(string userid)
+            => PostDAO.Instance.DeletePostByUserId(userid);
     }
 }
