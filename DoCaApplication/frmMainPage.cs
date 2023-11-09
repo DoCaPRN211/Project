@@ -1,4 +1,5 @@
 ﻿using BusinessObject.Models;
+using Microsoft.VisualBasic.Devices;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace DoCaApplication
         IReactRepository reactRepository = new ReactRepository();
         IBookmarkRepository bookmarkRepository = new BookmarkRepositoy();
         IUserRepository userRepository = new UserRepository();
+        ICategoryRepository categoryRepository = new CategoryRepository();
         BindingSource BindingSource { get; set; }
         Post post { get; set; }
         public frmMainPage()
@@ -40,6 +42,7 @@ namespace DoCaApplication
                 {
                     PostedBy = userRepository.GetUserById(p.Userid).Username,
                     p.Title,
+                    Category = categoryRepository.GetCategoryByCategoryId(p.Categoryid).Name,
                     CreateTime = p.Createtime,
                     Reaction = reactRepository.GetReactsByPost(p).Count(),
                     Comment = commentRepository.GetCommentsByPost(p).Count(),
@@ -98,7 +101,10 @@ namespace DoCaApplication
             {
                 if (bookmark.Userid.Equals(LoginInfo.user.Id) && bookmark.Isactive)
                 {
-                    bookmarklist.Add(postRepository.GetPostById(bookmark.Postid));
+                    if (postRepository.GetPostById(bookmark.Postid) != null)
+                    {
+                        bookmarklist.Add(postRepository.GetPostById(bookmark.Postid));
+                    }
                 }
             }
             Binding(bookmarklist);
@@ -136,6 +142,10 @@ namespace DoCaApplication
                 lbBan.Visible = true;
                 btnCreatePost.Enabled = false;
             }
+            var cate = categoryRepository.GetCategories().ToList();
+            cboSort.DataSource = cate;
+            cboSort.DisplayMember = "Name";
+            cboSort.ValueMember = "Id";
         }
 
         private void btnCreatePost_Click(object sender, EventArgs e)
@@ -183,6 +193,7 @@ namespace DoCaApplication
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            txtSearch.Text = string.Empty;
             LoadPostList();
         }
 
@@ -199,6 +210,21 @@ namespace DoCaApplication
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnSort_Click(object sender, EventArgs e)
+        {
+            ClearText();
+            var list = postRepository.GetPosts().ToList();
+            var sortlist = new List<Post>();
+            foreach (var post in list)
+            {
+                if (post.Categoryid.ToString() == cboSort.SelectedValue.ToString())
+                {
+                    sortlist.Add(post);
+                }
+            }
+            Binding(sortlist);
         }
     }
 }

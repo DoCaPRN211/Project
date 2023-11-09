@@ -42,6 +42,8 @@
             btnBookmark = new Button();
             btnClose = new Button();
             pictureBox1 = new PictureBox();
+            btnSort = new Button();
+            cboSort = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvPost).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -175,11 +177,31 @@
             pictureBox1.TabIndex = 14;
             pictureBox1.TabStop = false;
             // 
+            // btnSort
+            // 
+            btnSort.Location = new Point(1193, 275);
+            btnSort.Name = "btnSort";
+            btnSort.Size = new Size(162, 29);
+            btnSort.TabIndex = 15;
+            btnSort.Text = "Sort Post";
+            btnSort.UseVisualStyleBackColor = true;
+            btnSort.Click += btnSort_Click;
+            // 
+            // cboSort
+            // 
+            cboSort.FormattingEnabled = true;
+            cboSort.Location = new Point(1193, 310);
+            cboSort.Name = "cboSort";
+            cboSort.Size = new Size(162, 28);
+            cboSort.TabIndex = 16;
+            // 
             // frmMainPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1377, 889);
+            Controls.Add(cboSort);
+            Controls.Add(btnSort);
             Controls.Add(pictureBox1);
             Controls.Add(btnClose);
             Controls.Add(btnBookmark);
@@ -218,5 +240,7 @@
         private Button btnBookmark;
         private Button btnClose;
         private PictureBox pictureBox1;
+        private Button btnSort;
+        private ComboBox cboSort;
     }
 }

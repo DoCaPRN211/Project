@@ -242,3 +242,4 @@ D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-window
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.genruntimeconfig.cache
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\ref\DoCaApplication.dll
 D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.frmForgotPassword.resources
+D:\Kì 5\PRN211 - NET\GitHub 2.0\Project\DoCaApplication\obj\Debug\net6.0-windows\DoCaApplication.frmReport.resources

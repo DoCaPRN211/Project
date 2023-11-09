@@ -37,6 +37,7 @@
             btnDelete = new Button();
             txtBy = new TextBox();
             lbBy = new Label();
+            btnReport = new Button();
             SuspendLayout();
             // 
             // label1
@@ -55,7 +56,7 @@
             txtComment.Multiline = true;
             txtComment.Name = "txtComment";
             txtComment.Size = new Size(257, 125);
-            txtComment.TabIndex = 2;
+            txtComment.TabIndex = 4;
             // 
             // btnLike
             // 
@@ -85,7 +86,7 @@
             btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(86, 31);
-            btnCancel.TabIndex = 4;
+            btnCancel.TabIndex = 2;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
@@ -129,11 +130,22 @@
             lbBy.TabIndex = 8;
             lbBy.Text = "By:";
             // 
+            // btnReport
+            // 
+            btnReport.Location = new Point(204, 317);
+            btnReport.Name = "btnReport";
+            btnReport.Size = new Size(226, 29);
+            btnReport.TabIndex = 21;
+            btnReport.Text = "Report Comment";
+            btnReport.UseVisualStyleBackColor = true;
+            btnReport.Click += btnReport_Click;
+            // 
             // frmComment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(557, 383);
+            Controls.Add(btnReport);
             Controls.Add(lbBy);
             Controls.Add(txtBy);
             Controls.Add(btnDelete);
@@ -162,5 +174,6 @@
         private Button btnDelete;
         private TextBox txtBy;
         private Label lbBy;
+        private Button btnReport;
     }
 }

@@ -20,6 +20,8 @@ namespace DoCaApplication
         ICommentRepository commentRepository = new CommentRepository();
         IBookmarkRepository bookmarkRepository = new BookmarkRepositoy();
         IUserRepository userRepository = new UserRepository();
+        IReportRepository reportRepository = new ReportRepository();
+        public bool IsAdmin { get; set; }
         public IReactRepository reactRepository { get; set; }
         BindingSource BindingSource { get; set; }
         public frmViewPost()
@@ -82,54 +84,66 @@ namespace DoCaApplication
             txtId.Visible = false;
             txtId.Text = post.Createtime.ToString();
 
-            if (LoginInfo.user.Isban)
+            if (IsAdmin)
             {
-                lbBan.Visible = true;
-                btnAddComment.Enabled = false;
-                btnEditPost.Enabled = false;
-            }
-
-            if (post.Userid.Equals(LoginInfo.user.Id))
-            {
-                btnDelete.Visible = true;
-                btnEditPost.Visible = true;
+                btnBookmark.Visible = false;
+                btnReport.Visible = false;
+                btnLike.Visible = false;
+                btnAddComment.Visible = false;
+                btnEditPost.Visible = false;
             }
             else
             {
-                btnDelete.Visible = false;
-                btnEditPost.Visible = false;
-            }
-
-            if (reactRepository.GetReactByUserIdAndPostId(LoginInfo.user.Id, post.Id) != null)
-            {
-                if (reactRepository.GetReactByUserIdAndPostId(LoginInfo.user.Id, post.Id).Isactive)
+                if (LoginInfo.user.Isban)
                 {
-                    btnLike.Text = "Unlike";
+                    lbBan.Visible = true;
+                    btnAddComment.Enabled = false;
+                    btnEditPost.Enabled = false;
+                }
+
+                if (post.Userid.Equals(LoginInfo.user.Id))
+                {
+                    btnDelete.Visible = true;
+                    btnEditPost.Visible = true;
+                }
+                else
+                {
+                    btnDelete.Visible = false;
+                    btnEditPost.Visible = false;
+                }
+
+                if (reactRepository.GetReactByUserIdAndPostId(LoginInfo.user.Id, post.Id) != null)
+                {
+                    if (reactRepository.GetReactByUserIdAndPostId(LoginInfo.user.Id, post.Id).Isactive)
+                    {
+                        btnLike.Text = "Unlike";
+                    }
+                    else
+                    {
+                        btnLike.Text = "Like";
+                    }
                 }
                 else
                 {
                     btnLike.Text = "Like";
                 }
-            }
-            else
-            {
-                btnLike.Text = "Like";
-            }
 
-            if (bookmarkRepository.GetBookmarkByUserIdAndPostId(LoginInfo.user.Id, post.Id) != null)
-            {
-                if (bookmarkRepository.GetBookmarkByUserIdAndPostId(LoginInfo.user.Id, post.Id).Isactive)
+                if (bookmarkRepository.GetBookmarkByUserIdAndPostId(LoginInfo.user.Id, post.Id) != null)
                 {
-                    btnBookmark.Text = "Unbookmark";
+                    if (bookmarkRepository.GetBookmarkByUserIdAndPostId(LoginInfo.user.Id, post.Id).Isactive)
+                    {
+                        btnBookmark.Text = "Unbookmark";
+                    }
+                    else
+                    {
+                        btnBookmark.Text = "Save as Bookmark";
+                    }
                 }
                 else
                 {
                     btnBookmark.Text = "Save as Bookmark";
                 }
-            }
-            else
-            {
-                btnBookmark.Text = "Save as Bookmark";
+
             }
             LoadCommentList();
         }
@@ -151,6 +165,7 @@ namespace DoCaApplication
         {
             frmComment f = new frmComment
             {
+                IsAdmin = IsAdmin,
                 ViewOrAdd = true,
                 Comment = commentRepository.GetCommentByContentAndCreateTime(txtComment.Text, DateTime.Parse(txtCreateTime.Text)),
                 post = post,
@@ -209,6 +224,7 @@ namespace DoCaApplication
                 if (d == DialogResult.OK)
                 {
                     postRepository.DeletePost(post);
+                    reportRepository.DeleteReportByPostId(post.Id);
                     this.Close();
                 }
             }
@@ -246,6 +262,15 @@ namespace DoCaApplication
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            frmReport frmReport = new frmReport
+            {
+                post = post
+            };
+            frmReport.ShowDialog();
         }
     }
 }

@@ -3,12 +3,14 @@ using Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace DoCaApplication
 {
@@ -19,6 +21,7 @@ namespace DoCaApplication
         IPostRepository postRepository = new PostRepository();
         ICommentRepository commentRepository = new CommentRepository();
         IReactRepository reactRepository = new ReactRepository();
+        IReportRepository reportRepository = new ReportRepository();
         public frmAdminPage()
         {
             InitializeComponent();
@@ -115,6 +118,8 @@ namespace DoCaApplication
             txtCategoryId.Text = string.Empty;
             txtCategoryName.Text = string.Empty;
             btnUpdateCategory.Enabled = false;
+            btnDeleteReport.Enabled = false;
+            btnView.Enabled = false;
             LoadMemberList();
         }
 
@@ -132,6 +137,13 @@ namespace DoCaApplication
 
         private void frmAdminPage_Load(object sender, EventArgs e)
         {
+            txtReportId.Visible = false;
+            txtReportUsername.Visible = false;
+            btnActive.Enabled = false;
+            btnBan.Enabled = false;
+            btnUpdateCategory.Enabled = false;
+            btnDeleteReport.Enabled = false;
+            btnView.Enabled = false;
             txtSearch.Text = "-- SearchBy";
             txtSearch.ForeColor = Color.Gray;
         }
@@ -299,8 +311,10 @@ namespace DoCaApplication
             try
             {
                 btnUpdateCategory.Enabled = false;
+                btnDeleteReport.Enabled = false;
                 txtCategoryId.Text = string.Empty;
                 txtCategoryName.Text = string.Empty;
+                btnView.Enabled = false;
                 SearchMemberByUsername(txtSearch.Text);
             }
             catch (Exception ex)
@@ -314,8 +328,10 @@ namespace DoCaApplication
             try
             {
                 btnUpdateCategory.Enabled = false;
+                btnDeleteReport.Enabled = false;
                 txtCategoryId.Text = string.Empty;
                 txtCategoryName.Text = string.Empty;
+                btnView.Enabled = false;
                 SearchMemberByEmail(txtSearch.Text);
             }
             catch (Exception ex)
@@ -456,8 +472,10 @@ namespace DoCaApplication
         private void btnShowBanned_Click(object sender, EventArgs e)
         {
             btnUpdateCategory.Enabled = false;
+            btnDeleteReport.Enabled = false;
             txtCategoryId.Text = string.Empty;
             txtCategoryName.Text = string.Empty;
+            btnView.Enabled = false;
             ShowBannedMembers();
         }
 
@@ -503,6 +521,8 @@ namespace DoCaApplication
         {
             btnActive.Enabled = false;
             btnBan.Enabled = false;
+            btnDeleteReport.Enabled = false;
+            btnView.Enabled = false;
             ClearText();
             LoadCategoryList();
         }
@@ -536,6 +556,205 @@ namespace DoCaApplication
                 LoadCategoryList();
             }
             frmCategoryDetail.Close();
+        }
+
+        private void btnShowPostReport_Click(object sender, EventArgs e)
+        {
+            cboReport.Items.Clear();
+            cboReport.Text = string.Empty;
+            cboReport.Items.Add("Delete reports related to this post");
+            cboReport.Items.Add("Delete post reports of this user");
+            btnActive.Enabled = false;
+            btnBan.Enabled = false;
+            btnUpdateCategory.Enabled = false;
+            ClearText();
+            LoadReportPost();
+        }
+
+        private void btnShowCommentReport_Click(object sender, EventArgs e)
+        {
+            cboReport.Items.Clear();
+            cboReport.Text = string.Empty;
+            cboReport.Items.Add("Delete reports related to this comment");
+            cboReport.Items.Add("Delete comment reports of this user");
+            btnActive.Enabled = false;
+            btnBan.Enabled = false;
+            btnUpdateCategory.Enabled = false;
+            ClearText();
+            LoadReportComment();
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            if (postRepository.GetPostById(txtReportId.Text) != null)
+            {
+                frmViewPost f = new frmViewPost
+                {
+                    IsAdmin = true,
+                    post = postRepository.GetPostById(txtReportId.Text),
+                    reactRepository = reactRepository
+                };
+                f.ShowDialog();
+                LoadReportPost();
+            }
+            else if (commentRepository.GetCommentById(txtReportId.Text) != null)
+            {
+                frmComment f = new frmComment
+                {
+                    ViewOrAdd = true,
+                    Comment = commentRepository.GetCommentById(txtReportId.Text),
+                    reactRepository = reactRepository,
+                    commentRepository = commentRepository,
+                    IsAdmin = true,
+                };
+                f.ShowDialog();
+                LoadReportComment();
+            }
+            else
+            {
+                MessageBox.Show("Error", "View Report");
+            }
+        }
+
+        private void LoadReportComment()
+        {
+            try
+            {
+                var reportlist = reportRepository.GetReports().Where(r => r.Isactive && r.Postid == null).Select(r => new
+                {
+                    r.Id,
+                    r.Message,
+                    r.Commentid,
+                    Username = userRepository.GetUserById(r.Userid).Username,
+                }).OrderBy(r => r.Commentid).ToList();
+                BindingSource source = new BindingSource();
+                source.DataSource = reportlist;
+
+                txtReportId.DataBindings.Clear();
+                txtReportUsername.DataBindings.Clear();
+                txtReportId.DataBindings.Add("Text", source, "Commentid");
+                txtReportUsername.DataBindings.Add("Text", source, "Username");
+
+                dgvAdmin.DataSource = null;
+                dgvAdmin.DataSource = source;
+
+                if (reportlist.Count() == 0)
+                {
+                    txtReportId.Text = string.Empty;
+                    txtReportUsername.Text = string.Empty;
+                    btnView.Enabled = false;
+                    btnDeleteReport.Enabled = false;
+                }
+                else
+                {
+                    btnDeleteReport.Enabled = true;
+                    btnView.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error on load list of reports");
+            }
+        }
+
+        private void LoadReportPost()
+        {
+            try
+            {
+                var reportlist = reportRepository.GetReports().Where(r => r.Isactive && r.Commentid == null).Select(r => new
+                {
+                    r.Id,
+                    r.Message,
+                    r.Postid,
+                    Username = userRepository.GetUserById(r.Userid).Username,
+                }).OrderBy(r => r.Postid).ToList();
+                BindingSource source = new BindingSource();
+                source.DataSource = reportlist;
+
+                txtReportId.DataBindings.Clear();
+                txtReportUsername.DataBindings.Clear();
+                txtReportId.DataBindings.Add("Text", source, "Postid");
+                txtReportUsername.DataBindings.Add("Text", source, "Username");
+
+                dgvAdmin.DataSource = null;
+                dgvAdmin.DataSource = source;
+
+                if (reportlist.Count() == 0)
+                {
+                    txtReportId.Text = string.Empty;
+                    txtReportUsername.Text = string.Empty;
+                    btnView.Enabled = false;
+                    btnDeleteReport.Enabled = false;
+                }
+                else
+                {
+                    btnDeleteReport.Enabled = true;
+                    btnView.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error on load list of reports");
+            }
+        }
+
+        private void txtReportId_TextChanged(object sender, EventArgs e)
+        {
+            if (txtReportId.Text == string.Empty)
+            {
+                btnView.Enabled = false;
+            }
+            else
+            {
+                btnView.Enabled = true;
+            }
+        }
+
+        private void btnDeleteReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboReport.Text == string.Empty)
+                {
+                    MessageBox.Show("Delete action needed!", "Delete Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    DialogResult d;
+                    d = MessageBox.Show("Do you really want to delete report?", "Report Management",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1);
+                    if (d == DialogResult.OK)
+                    {
+                        if (cboReport.Text == "Delete reports related to this post")
+                        {
+                            reportRepository.DeleteReportByPostId(txtReportId.Text);
+                            LoadReportPost();
+                        }
+                        else if (cboReport.Text == "Delete post reports of this user")
+                        {
+                            reportRepository.DeleteReportByUserIdAndPostId(
+                                userRepository.GetUserByUsername(txtReportUsername.Text).Id, txtReportId.Text);
+                            LoadReportPost();
+                        }
+                        else if (cboReport.Text == "Delete reports related to this comment")
+                        {
+                            reportRepository.DeleteReportByCommentId(txtReportId.Text);
+                            LoadReportComment();
+                        }
+                        else if (cboReport.Text == "Delete comment reports of this user")
+                        {
+                            reportRepository.DeleteReportByUserIdAndCommentId(
+                                userRepository.GetUserByUsername(txtReportUsername.Text).Id, txtReportId.Text);
+                            LoadReportComment();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error deleting reports");
+            }
         }
     }
 }

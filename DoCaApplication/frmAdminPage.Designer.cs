@@ -61,11 +61,19 @@
             btnUpdateCategory = new Button();
             txtCategoryId = new TextBox();
             txtCategoryName = new TextBox();
+            btnShowPostReport = new Button();
+            btnShowCommentReport = new Button();
+            txtReportId = new TextBox();
+            btnView = new Button();
+            btnDeleteReport = new Button();
+            cboReport = new ComboBox();
+            txtReportUsername = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvAdmin).BeginInit();
             SuspendLayout();
             // 
             // dgvAdmin
             // 
+            dgvAdmin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAdmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAdmin.Location = new Point(12, 235);
             dgvAdmin.Name = "dgvAdmin";
@@ -320,7 +328,7 @@
             // 
             // btnViewCategory
             // 
-            btnViewCategory.Location = new Point(865, 104);
+            btnViewCategory.Location = new Point(1028, 103);
             btnViewCategory.Name = "btnViewCategory";
             btnViewCategory.Size = new Size(161, 29);
             btnViewCategory.TabIndex = 36;
@@ -330,7 +338,7 @@
             // 
             // btnCreateCategory
             // 
-            btnCreateCategory.Location = new Point(865, 138);
+            btnCreateCategory.Location = new Point(1028, 137);
             btnCreateCategory.Name = "btnCreateCategory";
             btnCreateCategory.Size = new Size(161, 29);
             btnCreateCategory.TabIndex = 37;
@@ -340,7 +348,7 @@
             // 
             // btnUpdateCategory
             // 
-            btnUpdateCategory.Location = new Point(865, 173);
+            btnUpdateCategory.Location = new Point(1028, 172);
             btnUpdateCategory.Name = "btnUpdateCategory";
             btnUpdateCategory.Size = new Size(161, 29);
             btnUpdateCategory.TabIndex = 38;
@@ -350,25 +358,99 @@
             // 
             // txtCategoryId
             // 
-            txtCategoryId.Location = new Point(1032, 103);
+            txtCategoryId.Location = new Point(989, 20);
             txtCategoryId.Name = "txtCategoryId";
             txtCategoryId.ReadOnly = true;
             txtCategoryId.Size = new Size(87, 27);
             txtCategoryId.TabIndex = 39;
+            txtCategoryId.Visible = false;
             // 
             // txtCategoryName
             // 
-            txtCategoryName.Location = new Point(1032, 138);
+            txtCategoryName.Location = new Point(1082, 20);
             txtCategoryName.Name = "txtCategoryName";
             txtCategoryName.ReadOnly = true;
             txtCategoryName.Size = new Size(157, 27);
             txtCategoryName.TabIndex = 40;
+            txtCategoryName.Visible = false;
+            // 
+            // btnShowPostReport
+            // 
+            btnShowPostReport.Location = new Point(471, 111);
+            btnShowPostReport.Name = "btnShowPostReport";
+            btnShowPostReport.Size = new Size(180, 29);
+            btnShowPostReport.TabIndex = 41;
+            btnShowPostReport.Text = "Show Post Report";
+            btnShowPostReport.UseVisualStyleBackColor = true;
+            btnShowPostReport.Click += btnShowPostReport_Click;
+            // 
+            // btnShowCommentReport
+            // 
+            btnShowCommentReport.Location = new Point(657, 111);
+            btnShowCommentReport.Name = "btnShowCommentReport";
+            btnShowCommentReport.Size = new Size(200, 29);
+            btnShowCommentReport.TabIndex = 42;
+            btnShowCommentReport.Text = "Show Comment Report";
+            btnShowCommentReport.UseVisualStyleBackColor = true;
+            btnShowCommentReport.Click += btnShowCommentReport_Click;
+            // 
+            // txtReportId
+            // 
+            txtReportId.Location = new Point(104, 9);
+            txtReportId.Name = "txtReportId";
+            txtReportId.ReadOnly = true;
+            txtReportId.Size = new Size(136, 27);
+            txtReportId.TabIndex = 43;
+            txtReportId.TextChanged += txtReportId_TextChanged;
+            // 
+            // btnView
+            // 
+            btnView.Location = new Point(863, 111);
+            btnView.Name = "btnView";
+            btnView.Size = new Size(94, 29);
+            btnView.TabIndex = 44;
+            btnView.Text = "View";
+            btnView.UseVisualStyleBackColor = true;
+            btnView.Click += btnView_Click;
+            // 
+            // btnDeleteReport
+            // 
+            btnDeleteReport.Location = new Point(471, 146);
+            btnDeleteReport.Name = "btnDeleteReport";
+            btnDeleteReport.Size = new Size(180, 29);
+            btnDeleteReport.TabIndex = 45;
+            btnDeleteReport.Text = "Delete Report";
+            btnDeleteReport.UseVisualStyleBackColor = true;
+            btnDeleteReport.Click += btnDeleteReport_Click;
+            // 
+            // cboReport
+            // 
+            cboReport.FormattingEnabled = true;
+            cboReport.Location = new Point(657, 147);
+            cboReport.Name = "cboReport";
+            cboReport.Size = new Size(300, 28);
+            cboReport.TabIndex = 46;
+            // 
+            // txtReportUsername
+            // 
+            txtReportUsername.Location = new Point(246, 9);
+            txtReportUsername.Name = "txtReportUsername";
+            txtReportUsername.ReadOnly = true;
+            txtReportUsername.Size = new Size(125, 27);
+            txtReportUsername.TabIndex = 47;
             // 
             // frmAdminPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1586, 728);
+            Controls.Add(txtReportUsername);
+            Controls.Add(cboReport);
+            Controls.Add(btnDeleteReport);
+            Controls.Add(btnView);
+            Controls.Add(txtReportId);
+            Controls.Add(btnShowCommentReport);
+            Controls.Add(btnShowPostReport);
             Controls.Add(txtCategoryName);
             Controls.Add(txtCategoryId);
             Controls.Add(btnUpdateCategory);
@@ -445,5 +527,12 @@
         private Button btnUpdateCategory;
         private TextBox txtCategoryId;
         private TextBox txtCategoryName;
+        private Button btnShowPostReport;
+        private Button btnShowCommentReport;
+        private TextBox txtReportId;
+        private Button btnView;
+        private Button btnDeleteReport;
+        private ComboBox cboReport;
+        private TextBox txtReportUsername;
     }
 }

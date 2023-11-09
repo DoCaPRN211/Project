@@ -30,8 +30,15 @@ namespace DataAccessObject
         public User GetUserById(string id)
         {
             using var db = new DoCaPrnContext();
-            var user = db.Users.SingleOrDefault(u => u.Id.Equals(id));
+            var user = db.Users.SingleOrDefault(u => u.Isactive && u.Id.Equals(id));
             user.Password = DecodeFrom64(user.Password);
+            return user;
+        }
+
+        public User GetUserByUsername(string name)
+        {
+            using var db = new DoCaPrnContext();
+            var user = db.Users.SingleOrDefault(u => u.Isactive && u.Username.Equals(name));
             return user;
         }
 

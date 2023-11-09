@@ -23,5 +23,7 @@ namespace Repository
 
         void DeleteCommentByUserId(string userid);
 
+        Comment GetCommentById(string commentid);
+
     }
 }

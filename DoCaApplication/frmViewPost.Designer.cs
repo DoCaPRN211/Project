@@ -47,6 +47,7 @@
             btnClose = new Button();
             lbBy = new Label();
             txtBy = new TextBox();
+            btnReport = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvComment).BeginInit();
             SuspendLayout();
             // 
@@ -94,7 +95,7 @@
             txtContent.Name = "txtContent";
             txtContent.ReadOnly = true;
             txtContent.Size = new Size(459, 256);
-            txtContent.TabIndex = 5;
+            txtContent.TabIndex = 17;
             // 
             // dgvComment
             // 
@@ -199,7 +200,7 @@
             // 
             // btnBookmark
             // 
-            btnBookmark.Location = new Point(756, 289);
+            btnBookmark.Location = new Point(756, 253);
             btnBookmark.Name = "btnBookmark";
             btnBookmark.Size = new Size(161, 29);
             btnBookmark.TabIndex = 16;
@@ -212,7 +213,7 @@
             btnClose.Location = new Point(756, 705);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(144, 29);
-            btnClose.TabIndex = 17;
+            btnClose.TabIndex = 5;
             btnClose.Text = "Close Post";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
@@ -234,11 +235,22 @@
             txtBy.Size = new Size(149, 27);
             txtBy.TabIndex = 19;
             // 
+            // btnReport
+            // 
+            btnReport.Location = new Point(756, 288);
+            btnReport.Name = "btnReport";
+            btnReport.Size = new Size(161, 29);
+            btnReport.TabIndex = 20;
+            btnReport.Text = "Report Post";
+            btnReport.UseVisualStyleBackColor = true;
+            btnReport.Click += btnReport_Click;
+            // 
             // frmViewPost
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(948, 757);
+            Controls.Add(btnReport);
             Controls.Add(txtBy);
             Controls.Add(lbBy);
             Controls.Add(btnClose);
@@ -289,5 +301,6 @@
         private Button btnClose;
         private Label lbBy;
         private TextBox txtBy;
+        private Button btnReport;
     }
 }

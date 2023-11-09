@@ -19,5 +19,7 @@ namespace Repository
         void BanUser(User u);
         User GetUserByUsernameAndEmail(string username, string email);
 
+        User GetUserByUsername(string name);
+
     }
 }

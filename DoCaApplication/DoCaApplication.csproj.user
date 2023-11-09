@@ -32,6 +32,9 @@
     <Compile Update="frmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmResetPassword.cs">
       <SubType>Form</SubType>
     </Compile>

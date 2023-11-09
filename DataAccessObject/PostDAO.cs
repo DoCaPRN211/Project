@@ -32,13 +32,13 @@ namespace DataAccessObject
 
         public Post GetPostById(string postid)
         {
-            var tmp = GetPosts().SingleOrDefault(p => p.Id.Equals(postid));
+            var tmp = GetPosts().SingleOrDefault(p => p.Isactive && p.Id.Equals(postid));
             return tmp;
         }
 
         public Post GetPostByTitleAndCreateTime(string title, DateTime createTime)
         {
-            var tmp = GetPosts().SingleOrDefault(p => p.Title.Equals(title) && p.Createtime == createTime);
+            var tmp = GetPosts().SingleOrDefault(p => p.Isactive && p.Title.Equals(title) && p.Createtime == createTime);
             return tmp;
         }
 

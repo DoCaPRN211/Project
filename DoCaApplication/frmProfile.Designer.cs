@@ -251,7 +251,7 @@
             btnChangePass.Location = new Point(328, 388);
             btnChangePass.Margin = new Padding(3, 4, 3, 4);
             btnChangePass.Name = "btnChangePass";
-            btnChangePass.Size = new Size(144, 32);
+            btnChangePass.Size = new Size(144, 36);
             btnChangePass.TabIndex = 47;
             btnChangePass.Text = "Change Password";
             btnChangePass.UseVisualStyleBackColor = true;

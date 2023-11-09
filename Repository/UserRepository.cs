@@ -30,5 +30,8 @@ namespace Repository
 
         public User GetUserByUsernameAndEmail(string username, string email)
             => UserDAO.Instance.GetUserByUsernameAndEmail(username, email);
+
+        public User GetUserByUsername(string name)
+            => UserDAO.Instance.GetUserByUsername(name);
     }
 }

@@ -19,7 +19,9 @@ namespace DoCaApplication
         public ICommentRepository commentRepository { get; set; }
         public IReactRepository reactRepository { get; set; }
         IUserRepository userRepository = new UserRepository();
+        IReportRepository reportRepository = new ReportRepository();
         public Post post { get; set; }
+        public bool IsAdmin { get; set; }
 
         public frmComment()
         {
@@ -28,56 +30,75 @@ namespace DoCaApplication
 
         private void frmComment_Load(object sender, EventArgs e)
         {
-            if (ViewOrAdd)
+            if (!IsAdmin)
             {
-                txtBy.Visible = true;
-                lbBy.Visible = true;
-                txtBy.Text = userRepository.GetUserById(Comment.Userid).Username;
-                txtComment.Text = Comment.Content;
-                txtComment.ReadOnly = true;
-                btnLike.Visible = true;
-                btnAddComment.Visible = false;
-                if (Comment.Userid.Equals(LoginInfo.user.Id))
+                if (ViewOrAdd)
                 {
-                    if (LoginInfo.user.Isban)
+                    btnReport.Visible = true;
+                    txtBy.Visible = true;
+                    lbBy.Visible = true;
+                    txtBy.Text = userRepository.GetUserById(Comment.Userid).Username;
+                    txtComment.Text = Comment.Content;
+                    txtComment.ReadOnly = true;
+                    btnLike.Visible = true;
+                    btnAddComment.Visible = false;
+                    if (Comment.Userid.Equals(LoginInfo.user.Id))
                     {
-                        btnEdit.Enabled = false;
+                        if (LoginInfo.user.Isban)
+                        {
+                            btnEdit.Enabled = false;
+                        }
+                        btnDelete.Visible = true;
+                        btnEdit.Visible = true;
                     }
-                    btnDelete.Visible = true;
-                    btnEdit.Visible = true;
+                    else
+                    {
+                        btnDelete.Visible = false;
+                        btnEdit.Visible = false;
+                    }
                 }
                 else
                 {
+                    btnReport.Visible = false;
+                    lbBy.Visible = false;
+                    txtBy.Visible = false;
                     btnDelete.Visible = false;
                     btnEdit.Visible = false;
+                    btnLike.Visible = false;
+                    btnAddComment.Visible = true;
                 }
-            }
-            else
-            {
-                lbBy.Visible = false;
-                txtBy.Visible = false;
-                btnDelete.Visible = false;
-                btnEdit.Visible = false;
-                btnLike.Visible = false;
-                btnAddComment.Visible = true;
-            }
-            if (ViewOrAdd)
-            {
-                if (reactRepository.GetReactByUserIdAndCommentId(LoginInfo.user.Id, Comment.Id) != null)
+                if (ViewOrAdd)
                 {
-                    if (reactRepository.GetReactByUserIdAndCommentId(LoginInfo.user.Id, Comment.Id).Isactive)
+                    if (reactRepository.GetReactByUserIdAndCommentId(LoginInfo.user.Id, Comment.Id) != null)
                     {
-                        btnLike.Text = "Unlike";
+                        if (reactRepository.GetReactByUserIdAndCommentId(LoginInfo.user.Id, Comment.Id).Isactive)
+                        {
+                            btnLike.Text = "Unlike";
+                        }
+                        else
+                        {
+                            btnLike.Text = "Like";
+                        }
                     }
                     else
                     {
                         btnLike.Text = "Like";
                     }
                 }
-                else
-                {
-                    btnLike.Text = "Like";
-                }
+            }
+            else
+            {
+                txtBy.Visible = true;
+                lbBy.Visible = true;
+                btnAddComment.Visible = false;
+                btnLike.Visible = false;
+                btnEdit.Visible = false;
+                btnReport.Visible = false;
+                btnDelete.Visible = true;
+                txtComment.ReadOnly = true;
+                txtBy.Text = userRepository.GetUserById(Comment.Userid).Username;
+                txtComment.Text = Comment.Content;
+                btnDelete.Location = new Point(204, 240);
             }
         }
 
@@ -186,6 +207,7 @@ namespace DoCaApplication
                 if (d == DialogResult.OK)
                 {
                     commentRepository.DeleteComment(Comment);
+                    reportRepository.DeleteReportByCommentId(Comment.Id);
                     this.Close();
                 }
             }
@@ -193,6 +215,15 @@ namespace DoCaApplication
             {
                 MessageBox.Show(ex.Message, "Delete Comment");
             }
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            frmReport frmReport = new frmReport
+            {
+                comment = Comment
+            };
+            frmReport.ShowDialog();
         }
     }
 }

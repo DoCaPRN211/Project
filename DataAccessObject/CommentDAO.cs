@@ -43,6 +43,12 @@ namespace DataAccessObject
             return tmp;
         }
 
+        public Comment GetCommentById(string commentid)
+        {
+            var tmp = GetComments().SingleOrDefault(p => p.Isactive && p.Id.Equals(commentid));
+            return tmp;
+        }
+
         public void DeleteCommentByUserId(string userid)
         {
             using var db = new DoCaPrnContext();
